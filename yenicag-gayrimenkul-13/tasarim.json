@@ -1,0 +1,48 @@
+{
+  "acilis_foto_saniye": 2.7,
+  "acilis_guven": "Bölge verisiyle fiyat; gizli komisyon yok.",
+  "acilis_kapanis": "firma reklamı + güven cümlesi",
+  "acilis_saniye": 7,
+  "agent": "AGENT_1 · Sektör & Marka DNA Stratejisti",
+  "bolumler": [
+    "Açılış klibi",
+    "Hero + canvas",
+    "Metrik şeridi",
+    "Bento hizmetler",
+    "Sekmeli vitrin",
+    "Yorumlar",
+    "SSS",
+    "İletişim + Footer"
+  ],
+  "demo_damgasi": "DEMO",
+  "font": {
+    "baslik": "Instrument Serif",
+    "govde": "Instrument Sans"
+  },
+  "hero_varyanti": "imza-1",
+  "kapanis_saniye": 2,
+  "kopya_korumasi": true,
+  "musteri_medyasi": {
+    "acilis": false,
+    "foto": 0,
+    "video": 0
+  },
+  "palet": {
+    "vurgu": "#c89e7e",
+    "vurgu2": "#2e99ea",
+    "vurgu3": "#7cd175",
+    "yazi": "#f4f1ea",
+    "yuzey": "#171d23",
+    "zemin": "#0e1216"
+  },
+  "panel_renkleri": {
+    "vurgu": false,
+    "yazi": false,
+    "zemin": false
+  },
+  "sanat_yonu": "Nesne",
+  "sektor": "Emlak",
+  "tema": "koyu",
+  "yon_aciklama": "Tam ekran görsel üstünde büyük tipografi; tek odak, sinematik giriş.",
+  "yon_bolum_sirasi": "Vitrin → Hizmetler → Yorumlar → SSS → İletişim"
+}
