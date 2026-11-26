@@ -1,0 +1,20 @@
+{
+  "agent": "AGENT_2 · Sektörel Copywriter",
+  "dil": "tr",
+  "giris": "Aile, iş ve ticaret hukukunda danışmanlık ve dava takibi. İlk görüşmede dosyanızı dinliyor, izlenecek yolu ve ücreti yazılı veriyoruz.",
+  "h1": "Hakkınızı yazılı savunuruz. <span class=\"h1-alt\">aaaa · Türkiye</span>",
+  "hizmetler": [
+    {
+      "aciklama": "Boşanma, velayet ve nafaka; adım adım yazılı bilgilendirme.",
+      "ad": "Aile hukuku"
+    },
+    {
+      "aciklama": "İşe iade, kıdem ve ihbar; işçi ve işveren vekilliği.",
+      "ad": "İş hukuku"
+    },
+    {
+      "aciklama": "Sözleşme, alacak ve şirket işlemleri; önleyici danışmanlık.",
+      "ad": "Ticaret hukuku"
+    }
+  ]
+}
