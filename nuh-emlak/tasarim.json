@@ -1,0 +1,50 @@
+{
+  "acilis_ev_sayisi": 3,
+  "acilis_foto_saniye": 2.7,
+  "acilis_guven": "Bölge verisiyle fiyat; gizli komisyon yok.",
+  "acilis_kapanis": "firma reklamı + güven cümlesi",
+  "acilis_saniye": 7,
+  "agent": "AGENT_1 · Sektör & Marka DNA Stratejisti",
+  "bolumler": [
+    "Açılış klibi",
+    "Hero + canvas",
+    "Metrik şeridi",
+    "Bento hizmetler",
+    "Sekmeli vitrin",
+    "Yorumlar",
+    "SSS",
+    "İletişim + Footer"
+  ],
+  "demo_etiketi": "DEMO",
+  "font": {
+    "baslik": "Instrument Serif",
+    "govde": "Instrument Sans"
+  },
+  "hero_varyanti": "imza-2",
+  "kapanis_saniye": 2,
+  "kopya_korumasi": true,
+  "musteri_medyasi": {
+    "acilis": false,
+    "foto": 0,
+    "video": 0
+  },
+  "palet": {
+    "vurgu": "#c8b07e",
+    "vurgu2": "#a67859",
+    "vurgu3": "#98b08d",
+    "yazi": "#f4f1ea",
+    "yuzey": "#171d23",
+    "zemin": "#0e1216"
+  },
+  "panel_renkleri": {
+    "vurgu": false,
+    "yazi": false,
+    "zemin": false
+  },
+  "sanat_yonu": "Sakin",
+  "sektor": "Emlak",
+  "tanitim_video": "tanitim.mp4",
+  "tema": "koyu",
+  "yon_aciklama": "Malzeme dili: bol boşluk, yumuşak serif, gölgesiz yüzeyler, yavaş ritim.",
+  "yon_bolum_sirasi": "Hizmetler → Yorumlar → SSS → Vitrin → İletişim"
+}
