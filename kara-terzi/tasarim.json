@@ -1,0 +1,30 @@
+{
+  "agent": "AGENT_1 · Sektör & Marka DNA Stratejisti",
+  "bolumler": [
+    "Açılış klibi",
+    "Hero + canvas",
+    "Metrik şeridi",
+    "Bento hizmetler",
+    "Sekmeli vitrin",
+    "Yorumlar",
+    "SSS",
+    "İletişim + Footer"
+  ],
+  "font": {
+    "baslik": "Instrument Serif",
+    "govde": "Instrument Sans"
+  },
+  "palet": {
+    "vurgu": "#d4af37",
+    "yazi": "#f2efe6",
+    "yuzey": "#171c21",
+    "zemin": "#0e1114"
+  },
+  "panel_renkleri": {
+    "vurgu": false,
+    "yazi": false,
+    "zemin": false
+  },
+  "sektor": "Avukat & Hukuk Bürosu",
+  "tema": "koyu"
+}

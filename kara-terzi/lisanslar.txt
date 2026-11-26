@@ -1,0 +1,57 @@
+STOK VİDEO KAYNAKLARI VE LİSANSI
+
+Bu sitedeki 3 sinematik klip (açılış, iş, kapanış), sitenin kendi üç
+fotoğrafından (gorsel.jpg, detay.jpg, detay2.jpg) yavaş kaydırma/zoom ile
+üretilmiştir. Poster ile video aynı sahneyi gösterir; stok video değildir.
+Her klip 7 saniye, sessiz 1280x720 H.264 ve faststart olarak kodlanmıştır.
+Uygulamanın içinde ayrıca 180 kliplik lisanslı bir yedek havuz vardır; ffmpeg
+yoksa site o havuzdan beslenir. Site çalışırken dış sunucuya istek gitmez.
+
+Sayfa yalnız üç güçlü sahne kullanır; diğer bölümler sektör fotoğrafıyla taşınır.
+
+İL / İLÇE
+Seçilen il ve ilçe sitenin metninde, harita bağlantısında ve yerel SEO
+verisinde kullanılır. Siteye başka bir yerden fotoğraf indirilmez: kahraman
+görsel, galeri, iş kartları ve videolar seçilen sektörün kendi gömülü setinden
+gelir. Böylece her üretimde aynı görsel dil kalır; eski bina, kalabalık pazar
+gibi belgesel kareler müşterinin vitrinine karışmaz.
+
+Yedek stok havuzu (yalnız ffmpeg yoksa):
+- Sektör başına 12 kliplik lisanslı havuz vardır (Coverr/Pexels).
+- Emlak ve çekici havuzları Türkiye'de çekilmiş klipler kullanır:
+  Kayseri şehir merkezi, Kapadokya balonları ve köyü; markasız gece yolu ve otoyol.
+- Yabancı ülke simgesi, yabancı tabela, Amerikan tipi çekici ve konu dışı sahne kullanılmaz.
+- Emlak: Portekiz burnu; spor: Kiril tabelalı parkur; oto: askeri hurda;
+  kreş: Avrupa meydanı; tesisat: bahçede duş alan figür havuzdan çıkarıldı.
+- gorsel.jpg, detay.jpg ve detay2.jpg sektörün kendi üç sahnesinden alınır;
+  poster ile video her zaman aynı işi gösterir.
+
+Lisans: Coverr License — https://coverr.co/license
+Pexels License — https://www.pexels.com/license/ (atıf gerekmez, ticari kullanım serbest)
+- Ticari ve kişisel projelerde ücretsizdir; atıf zorunlu değildir.
+- Videolar stok olarak yeniden satılamaz veya dağıtılamaz.
+- Kişilerin/markaların yanıltıcı veya olumsuz bağlamda gösterilmesi yasaktır.
+
+Kaynak aramaları:
+- Kafe: https://coverr.co/s?q=coffee · cafe · restaurant · barista
+- Kuaför: https://coverr.co/s?q=barber · haircut · hairdresser
+- Diş: https://coverr.co/s?q=teeth · dentist · clinic
+- Emlak: https://coverr.co/s?q=apartment · interior · architecture
+- Spor: https://coverr.co/s?q=gym · fitness · workout
+- Avukat: https://coverr.co/s?q=office · meeting · books · documents
+- Kreş: https://coverr.co/s?q=kids · playground · toys · painting
+- Veteriner: https://coverr.co/s?q=cat · dog · puppy · pet
+- Oto servis: https://coverr.co/s?q=car · mechanic · car wash · garage
+- Oto çekici: https://coverr.co/s?q=night+road · car+lights · towing
+- Temizlik: https://coverr.co/s?q=cleaning · vacuum · broom
+- Tesisat: https://coverr.co/s?q=plumbing · faucet · pipe
+- Nakliyat: https://coverr.co/s?q=moving · boxes · packing
+- Genel: https://coverr.co/s?q=office · business · meeting
+
+Yeni klip gerekirse: python scripts/klip_indir.py
+Not: Görseller temsilidir. Müşteri kendi işletme fotoğraf/videolarını verdiğinde
+aynı kadraj ve lisans yapısıyla değiştirilir.
+
+
+PROMPT SİTESİ GÖRSELLERİ
+Sitedeki gorsel.jpg sektör için üretilmiş özgün bir mekân karesidir; detay.jpg ve detay2.jpg aynı mekândan alınan sektör detaylarıdır. acilis.mp4 bu kareden üretilmiş 4 saniyelik sessiz tanıtım klipidir. Stok lisansı gerekmez; canlı yayında ayrı bir görsel servisi çağrılmaz.
