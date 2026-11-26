@@ -1,0 +1,50 @@
+{
+  "acilis_ev_sayisi": 0,
+  "acilis_foto_saniye": 2.7,
+  "acilis_guven": "Günlük hazırlık, yazılı menü, sürprizsiz hesap.",
+  "acilis_kapanis": "firma reklamı + güven cümlesi",
+  "acilis_saniye": 7,
+  "agent": "AGENT_1 · Sektör & Marka DNA Stratejisti",
+  "bolumler": [
+    "Açılış klibi",
+    "Hero + canvas",
+    "Metrik şeridi",
+    "Bento hizmetler",
+    "Sekmeli vitrin",
+    "Yorumlar",
+    "SSS",
+    "İletişim + Footer"
+  ],
+  "demo_etiketi": "DEMO",
+  "font": {
+    "baslik": "Fraunces",
+    "govde": "Manrope"
+  },
+  "hero_varyanti": "imza-1",
+  "kapanis_saniye": 2,
+  "kopya_korumasi": true,
+  "musteri_medyasi": {
+    "acilis": false,
+    "foto": 0,
+    "video": 0
+  },
+  "palet": {
+    "vurgu": "#e08b5e",
+    "vurgu2": "#2aadf4",
+    "vurgu3": "#83d175",
+    "yazi": "#f7efe4",
+    "yuzey": "#221812",
+    "zemin": "#17100b"
+  },
+  "panel_renkleri": {
+    "vurgu": false,
+    "yazi": false,
+    "zemin": false
+  },
+  "sanat_yonu": "Kinetik",
+  "sektor": "Kafe & Restoran",
+  "tanitim_video": "tanitim.mp4",
+  "tema": "koyu",
+  "yon_aciklama": "Poster dili: büyük harf, dar satır aralığı, vurgu renginde akan şerit.",
+  "yon_bolum_sirasi": "Hizmetler → Yorumlar → Vitrin → SSS → İletişim"
+}
