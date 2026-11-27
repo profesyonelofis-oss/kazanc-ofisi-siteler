@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>Mera Gayrimenkul — Portföy filmi</title>
+<meta name="description" content="Mera Gayrimenkul — Villa Kıyı için tek sahneli ev filmi. Oda oda, fare tekerleğiyle ilerleyen bir portföy turu.">
+<meta name="theme-color" content="#080d09">
+<link rel="preload" as="font" type="font/woff2" href="fonts/instrument-serif-400.woff2" crossorigin>
+<link rel="preload" as="image" href="art/dis.jpg">
+<style>
+/* ——— 01 · Fontlar ——— */
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-400-ext.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-italic-ext.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';src:url('fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
+
+/* ——— 02 · Tokenlar ——— */
+:root{
+  --yesil:#080d09;
+  --fildisi:#f4eee2;
+  --kum:#c9b99f;
+  --tunc:#ac845a;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Manrope','Helvetica Neue',Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-yavas:cubic-bezier(.16,1,.3,1);
+  --kenar:clamp(20px,5vw,84px);
+  --ust:78px;
+  --yazi:rgba(244,238,226,.84);
+  --cizgi:rgba(244,238,226,.18);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+html{background:var(--yesil);-webkit-text-size-adjust:100%;scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0;display:none}
+body{margin:0;overflow:hidden;overscroll-behavior:none;background:var(--yesil);color:var(--yazi);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--tunc);color:var(--fildisi)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,p,figure{margin:0}
+:focus-visible{outline:2px solid var(--kum);outline-offset:5px}
+.sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.atla{position:fixed;left:16px;top:-90px;z-index:700;background:var(--fildisi);color:var(--yesil);padding:12px 18px;font-size:12px;transition:top .3s}
+.atla:focus{top:14px}
+
+/* ——— 03 · Doku ——— */
+.grain{position:fixed;inset:-40%;z-index:600;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");animation:grain 7s steps(7) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,6%)}80%{transform:translate(5%,-3%)}}
+
+/* ——— 04 · Üç saniyelik isim reklamı ——— */
+.reklam{position:fixed;inset:0;z-index:500;background:#060a07;color:var(--fildisi);display:grid;place-items:center;transition:opacity .9s var(--ease),visibility .9s}
+.reklam.gitti{opacity:0;visibility:hidden;pointer-events:none}
+.reklam[hidden]{display:none}
+.reklam::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(172,132,90,.10),transparent 58%)}
+.reklam-cerceve{position:absolute;inset:clamp(14px,3vw,42px);border:1px solid rgba(244,238,226,.12);pointer-events:none}
+.reklam-cerceve::before,.reklam-cerceve::after{content:'';position:absolute;width:15px;height:15px;border:1px solid rgba(244,238,226,.3)}
+.reklam-cerceve::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
+.reklam-cerceve::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
+.reklam-orta{text-align:center;padding:0 var(--kenar);position:relative;z-index:1}
+.reklam-ad{font:400 clamp(44px,9.4vw,142px)/.9 var(--serif);letter-spacing:-.045em;text-wrap:balance;animation:adGir 1.6s var(--ease) both;text-shadow:0 2px 60px rgba(0,0,0,.4)}
+.reklam-ad::after{content:'';display:block;width:min(220px,30vw);height:1px;margin:clamp(22px,4vh,38px) auto 0;background:linear-gradient(90deg,transparent,rgba(244,238,226,.5),transparent);animation:cizgiGir 1.4s var(--ease) .35s both}
+@keyframes adGir{0%{opacity:0;filter:blur(14px);letter-spacing:.02em;transform:scale(1.025)}100%{opacity:1;filter:blur(0);letter-spacing:-.045em;transform:scale(1)}}
+@keyframes cizgiGir{0%{opacity:0;transform:scaleX(0)}100%{opacity:.8;transform:scaleX(1)}}
+.reklam-alt{position:absolute;left:clamp(34px,6vw,96px);right:clamp(34px,6vw,96px);bottom:clamp(30px,5vh,54px)}
+.reklam-zaman{display:block;height:1px;background:rgba(244,238,226,.16);overflow:hidden}
+.reklam-zaman i{display:block;height:100%;width:100%;background:var(--kum);transform-origin:0 50%;transform:scaleX(0);animation:zaman 3s linear forwards}
+@keyframes zaman{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+html:not(.js) .reklam{display:none}
+
+/* ——— 05 · Tek sahne ——— */
+.sahne{position:fixed;inset:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:var(--yesil)}
+.katmanlar,.kat,.perde{position:absolute;inset:0}
+.kat{opacity:0;transition:opacity 1.05s var(--ease-yavas);will-change:opacity,transform;z-index:0}
+.kat.on{opacity:1;z-index:1}
+.kat img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 11s linear;filter:saturate(.94) contrast(1.02)}
+.kat.on img{transform:scale(1)}
+/* Yönlü giriş: tekerlek aşağı ittiğinde kare alttan, yukarıda üstten gelir. */
+.kat.giris-alt{animation:katAlt 1.25s var(--ease-yavas) both}
+.kat.giris-ust{animation:katUst 1.25s var(--ease-yavas) both}
+@keyframes katAlt{0%{opacity:0;transform:translate3d(0,7%,0) scale(1.08)}60%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes katUst{0%{opacity:0;transform:translate3d(0,-7%,0) scale(1.08)}60%{opacity:1}100%{opacity:1;transform:none}}
+.perde{z-index:2;pointer-events:none;background:
+  linear-gradient(90deg,rgba(5,9,6,.78) 0%,rgba(5,9,6,.42) 40%,rgba(5,9,6,.02) 72%),
+  linear-gradient(0deg,rgba(5,9,6,.82) 0%,rgba(5,9,6,.12) 46%,rgba(5,9,6,.18) 100%);
+  transition:background .9s}
+.perde::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 66% 44%,transparent 22%,rgba(5,9,6,.26) 100%)}
+body.son .perde{background:
+  linear-gradient(90deg,rgba(4,7,5,.86) 0%,rgba(4,7,5,.52) 52%,rgba(4,7,5,.18) 100%),
+  linear-gradient(0deg,rgba(4,7,5,.84),rgba(4,7,5,.22))}
+body.son .kat.on img{filter:blur(3px) brightness(.8) saturate(.92)}
+
+/* Üst şerit: yalnız marka */
+.ust{position:absolute;z-index:10;top:0;left:0;right:0;height:var(--ust);padding:0 var(--kenar);display:flex;align-items:center;pointer-events:none}
+.marka{display:inline-flex;align-items:flex-start;gap:4px;font:400 26px/.9 var(--serif);letter-spacing:-.035em;color:var(--fildisi);pointer-events:auto}
+.marka i{font-style:normal;font-size:9px;margin-top:2px;color:var(--kum)}
+
+/* Şeffaf, dönen yazılar */
+.metinler{position:absolute;z-index:6;left:var(--kenar);right:var(--kenar);bottom:clamp(92px,14vh,144px);perspective:1200px;pointer-events:none}
+.metin{position:absolute;left:0;bottom:0;width:min(680px,78vw);opacity:0;visibility:hidden;transform:translateY(26px) rotateX(8deg);transform-origin:0 100%;transition:opacity .6s var(--ease),transform .95s var(--ease-yavas);will-change:transform,opacity}
+.metin.on{opacity:1;visibility:visible;transform:none}
+.metin.giris-alt{animation:metinAlt 1s var(--ease-yavas) both}
+.metin.giris-ust{animation:metinUst 1s var(--ease-yavas) both}
+@keyframes metinAlt{0%{opacity:0;transform:translateY(30px) rotateX(9deg);filter:blur(4px)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes metinUst{0%{opacity:0;transform:translateY(-24px) rotateX(-8deg);filter:blur(4px)}100%{opacity:1;transform:none;filter:blur(0)}}
+.metin .oda{display:flex;align-items:center;gap:12px;font:500 9px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:rgba(244,238,226,.66)}
+.metin .oda::before{content:'';display:block;width:32px;height:1px;background:var(--tunc)}
+.metin .oda b{font-weight:500;color:var(--kum)}
+.metin h2{font:400 clamp(38px,5.6vw,90px)/.94 var(--serif);letter-spacing:-.04em;margin:clamp(14px,2.4vh,24px) 0 clamp(12px,2vh,20px);color:rgba(244,238,226,.88);text-wrap:balance;text-shadow:0 2px 34px rgba(0,0,0,.34)}
+.metin h2 em{font-style:italic;color:rgba(230,217,193,.92)}
+.metin .aciklama{max-width:46ch;font-size:clamp(12px,1.05vw,15px);line-height:1.7;color:rgba(244,238,226,.68);text-shadow:0 1px 18px rgba(0,0,0,.45)}
+.metin.son{width:min(720px,84vw);pointer-events:auto}
+.son-iletisim{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,3vw,34px);margin-top:clamp(18px,3vh,28px)}
+.son-dugme{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:48px;padding:0 17px 0 22px;border:1px solid rgba(244,238,226,.5);border-radius:100px;font:500 9px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--fildisi);overflow:hidden;isolation:isolate;position:relative;transition:color .4s,border-color .4s}
+.son-dugme::before{content:'';position:absolute;z-index:-1;inset:0;background:var(--fildisi);transform:translateY(101%);transition:transform .55s var(--ease)}
+.son-dugme:hover{color:var(--yesil);border-color:var(--fildisi)}
+.son-dugme:hover::before{transform:translateY(0)}
+.son-dugme span{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border:1px solid rgba(244,238,226,.32);border-radius:50%;font-size:10px;transition:transform .4s,border-color .4s}
+.son-dugme:hover span{transform:rotate(45deg);border-color:rgba(8,13,9,.3)}
+.son-bilgi{display:flex;flex-direction:column;gap:4px;font:500 9px/1.5 var(--sans);letter-spacing:.08em;color:rgba(244,238,226,.62)}
+.son-bilgi a{transition:color .3s}
+.son-bilgi a:hover{color:var(--fildisi)}
+.son-not{max-width:46ch;margin-top:clamp(18px,3vh,26px);padding-top:14px;border-top:1px solid rgba(244,238,226,.16);font:500 8px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,238,226,.38)}
+
+/* Alt şerit */
+.alt{position:absolute;z-index:10;left:var(--kenar);right:var(--kenar);bottom:22px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;pointer-events:none}
+.alt>*{pointer-events:auto}
+.ilerleme{display:flex;align-items:center;gap:12px;font:400 12px/1 var(--serif);color:rgba(244,238,226,.78)}
+.ilerleme i{display:block;width:clamp(90px,14vw,190px);height:1px;background:rgba(244,238,226,.2);overflow:hidden}
+.ilerleme i b{display:block;height:100%;width:100%;background:var(--kum);transform:scaleX(0);transform-origin:0 50%;transition:transform .8s var(--ease-yavas)}
+.ilerleme small{font:500 8px var(--sans);letter-spacing:.14em;color:rgba(244,238,226,.38)}
+.ipucu{display:flex;align-items:center;gap:10px;margin-left:auto;font:500 8px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,238,226,.5);transition:opacity .4s}
+.ipucu .teker{display:block;width:17px;height:27px;border:1px solid rgba(244,238,226,.4);border-radius:9px;position:relative}
+.ipucu .teker i{position:absolute;left:50%;top:5px;width:1px;height:7px;margin-left:-.5px;background:rgba(244,238,226,.75);animation:teker 1.8s var(--ease) infinite}
+@keyframes teker{0%{opacity:0;transform:translateY(-2px)}25%{opacity:1}75%{opacity:1;transform:translateY(7px)}100%{opacity:0;transform:translateY(9px)}}
+body.gezindi .ipucu{opacity:.55}
+@media (max-width:860px){
+  .metinler{bottom:clamp(100px,16vh,140px)}
+  .metin{width:auto;right:0}
+  .metin h2{font-size:clamp(36px,8.4vw,60px)}
+  .alt{flex-direction:column;align-items:flex-start;gap:14px;bottom:16px}
+  .ipucu{align-self:flex-end;margin-left:0}
+  .ilerleme i{width:120px}
+}
+@media (max-width:560px){
+  :root{--ust:64px}
+  .marka{font-size:21px}
+  .metin h2{font-size:clamp(32px,10.2vw,50px)}
+  .metin .aciklama{font-size:12px;max-width:34ch}
+  .reklam-ad{font-size:clamp(38px,11.5vw,58px)}
+  .son-dugme{min-height:44px;font-size:8px}
+  .son-not{font-size:7px}
+  .ilerleme i{width:74px}
+}
+@media (max-height:640px){
+  .metin h2{font-size:clamp(30px,6.8vh,52px);margin:10px 0 10px}
+  .metin .aciklama{font-size:11.5px;line-height:1.55;max-width:40ch}
+  .metinler{bottom:88px}
+  .son-not{margin-top:12px;padding-top:10px}
+  .son-iletisim{margin-top:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .kat img{transform:none!important}
+}
+/* JavaScript yoksa: tek bir sabit sahne */
+html:not(.js) .kat[data-i="1"]{opacity:1}
+html:not(.js) .metin[data-i="1"]{opacity:1;visibility:visible;transform:none;position:relative}
+html:not(.js) .metinler{position:absolute}
+html:not(.js) .ipucu{display:none}
+</style>
+</head>
+<body class="tanitimda">
+<div class="grain" aria-hidden="true"></div>
+<a class="atla" href="#sahneler">Filme geç</a>
+
+<div class="reklam" id="reklam">
+  <div class="reklam-cerceve" aria-hidden="true"></div>
+  <div class="reklam-orta">
+    <div class="reklam-ad">Mera Gayrimenkul</div>
+  </div>
+  <div class="reklam-alt">
+    <span class="reklam-zaman"><i></i></span>
+  </div>
+</div>
+
+<main class="sahne" id="sahneler">
+  <h1 class="sr">Mera Gayrimenkul — Villa Kıyı portföy filmi</h1>
+
+  <div class="katmanlar" aria-hidden="true">
+    <figure class="kat" data-i="1"><img src="art/dis.jpg" alt="Villa Kıyı Dış cephe: Dış cephe"></figure>
+    <figure class="kat" data-i="2"><img src="art/giris.jpg" alt="Villa Kıyı Giriş: Giriş"></figure>
+    <figure class="kat" data-i="3"><img src="art/oyun.jpg" alt="Villa Kıyı Oyun odası: Oyun odası"></figure>
+    <figure class="kat" data-i="4"><img src="art/mutfak.jpg" alt="Villa Kıyı Mutfak: Mutfak"></figure>
+    <figure class="kat" data-i="5"><img src="art/salon.jpg" alt="Villa Kıyı Salon: Salon"></figure>
+    <figure class="kat" data-i="6"><img src="art/yatak.jpg" alt="Villa Kıyı Yatak odası: Yatak odası"></figure>
+    <figure class="kat" data-i="7"><img src="art/banyo.jpg" alt="Villa Kıyı Banyo: Banyo"></figure>
+    <figure class="kat" data-i="8"><img src="art/teras.jpg" alt="Villa Kıyı Teras: Teras"></figure>
+  </div>
+  <div class="perde" aria-hidden="true"></div>
+
+  <header class="ust">
+    <span class="marka">mera<i>●</i></span>
+  </header>
+
+  <div class="metinler" id="metinler" aria-live="polite">
+    <article class="metin" data-i="1">
+      <span class="oda">Dış cephe</span>
+      <h2>Akşam, <em>kapıda başlar.</em></h2>
+      <p class="aciklama">Taş, ahşap ve cam; ev bahçeye ve kıyıya açılır. Döndüğünüzde ışıklar yanıyor.</p>
+    </article>
+    <article class="metin" data-i="2">
+      <span class="oda">Giriş</span>
+      <h2>İçeri girerken <em>ev susar.</em></h2>
+      <p class="aciklama">Çift yükseklikli hol, sıcak meşe merdiven ve doğal taş. İlk adımda evin ölçüsü belli olur.</p>
+    </article>
+    <article class="metin" data-i="3">
+      <span class="oda">Oyun odası</span>
+      <h2>Akşam burada <em>başlar.</em></h2>
+      <p class="aciklama">Bilardo masası, kitaplık ve bar nişi. Kapı açık kaldığında evin sesine karışır.</p>
+    </article>
+    <article class="metin" data-i="4">
+      <span class="oda">Mutfak</span>
+      <h2>Evin en çok <em>yaşayan</em> odası.</h2>
+      <p class="aciklama">Meşe dolaplar, honlanmış taş ada ve bahçeye açılan cam. Sabah kahvesi burada başlar.</p>
+    </article>
+    <article class="metin" data-i="5">
+      <span class="oda">Salon</span>
+      <h2>Işık, gün boyu <em>odayı dolaşır.</em></h2>
+      <p class="aciklama">Çift yükseklikli tavan, kıyıya bakan cam cephe ve akşamüstü yumuşak ışık.</p>
+    </article>
+    <article class="metin" data-i="6">
+      <span class="oda">Yatak odası</span>
+      <h2>Sabah, <em>perde aralığından.</em></h2>
+      <p class="aciklama">Kıyıya bakan geniş cam, keten ve sessiz bir üst kat. Gün burada yavaşlar.</p>
+    </article>
+    <article class="metin" data-i="7">
+      <span class="oda">Banyo</span>
+      <h2>Günün son <em>molası.</em></h2>
+      <p class="aciklama">Traverten, pirinç armatür ve yağmur duşu. Sıcak taş, akşam ışığını tutar.</p>
+    </article>
+    <article class="metin" data-i="8">
+      <span class="oda">Teras</span>
+      <h2>Deniz, evin <em>son odası.</em></h2>
+      <p class="aciklama">Havuz, gölgelik ve akşam yemeği için uzun masa. Ev burada bahçeye bırakır.</p>
+    </article>
+    <article class="metin son" data-i="9">
+      <span class="oda">Kapanış</span>
+      <h2>Bir ev değil, <em>bir hayat.</em></h2>
+      <p class="aciklama">Villa Kıyı için bir randevu bırakın; kalanını birlikte planlayalım.</p>
+      <div class="son-iletisim">
+        <a class="son-dugme" href="mailto:merhaba@meragayrimenkul.com">Randevu al <span>↗</span></a>
+        <div class="son-bilgi">
+          <a href="mailto:merhaba@meragayrimenkul.com">merhaba@meragayrimenkul.com</a>
+          <span>0555 111 22 33</span>
+          <span>Karşıyaka, İzmir</span>
+        </div>
+      </div>
+      <p class="son-not">Örnek site · Tüm portföy bilgileri kurgusaldır.</p>
+    </article>
+  </div>
+
+  <footer class="alt">
+    <div class="ilerleme" aria-hidden="true"><span id="sayac">01</span><i><b id="cizgi"></b></i><small>09</small></div>
+    <span class="ipucu"><span class="teker"><i></i></span><span class="ipucu-yazi">Fare tekerleğiyle çevir</span></span>
+  </footer>
+  <p class="sr" id="durum"></p>
+</main>
+
+<script>
+(function(){
+  var govde=document.body;
+  var reklam=document.getElementById('reklam');
+  var katlar=[].slice.call(document.querySelectorAll('.kat'));
+  var metinler=[].slice.call(document.querySelectorAll('.metin'));
+  var sayac=document.getElementById('sayac');
+  var cizgi=document.getElementById('cizgi');
+  var ipucuYazi=document.querySelector('.ipucu-yazi');
+  var durum=document.getElementById('durum');
+  var SON=metinler.length, adim=0, kilit=false, tanitim=true, birikim=0;
+
+  function iki(n){return (n<10?'0':'')+n;}
+
+  function ciz(yon){
+    var kat=Math.min(adim+1,katlar.length);
+    katlar.forEach(function(k){
+      var on=+k.getAttribute('data-i')===kat;
+      if(on && !k.classList.contains('on')){
+        k.classList.remove('giris-alt','giris-ust');
+        void k.offsetWidth;
+        if(yon) k.classList.add(yon<0?'giris-ust':'giris-alt');
+      }
+      k.classList.toggle('on',on);
+    });
+    metinler.forEach(function(m){
+      var on=+m.getAttribute('data-i')===adim+1;
+      if(on && !m.classList.contains('on')){
+        m.classList.remove('giris-alt','giris-ust');
+        void m.offsetWidth;
+        if(yon) m.classList.add(yon<0?'giris-ust':'giris-alt');
+      }
+      m.classList.toggle('on',on);
+      m.setAttribute('aria-hidden',on?'false':'true');
+    });
+    sayac.textContent=iki(adim+1);
+    cizgi.style.transform='scaleX('+((adim+1)/SON)+')';
+    govde.classList.toggle('son',adim===SON-1);
+    var ad=metinler[adim].querySelector('h2').textContent.replace(/\s+/g,' ').replace(/[.!?]$/,'').trim();
+    durum.textContent=ad+' · '+(adim+1)+' / '+SON;
+    ipucuYazi.textContent=adim===SON-1?'Başa dönmek için yukarı çevir':(adim===0?'Fare tekerleğiyle çevir':'Devam etmek için çevir');
+  }
+
+  function git(hedef){
+    if(kilit||tanitim) return;
+    hedef=Math.max(0,Math.min(SON-1,hedef));
+    if(hedef===adim) return;
+    var yon=hedef>adim?1:-1;
+    adim=hedef;
+    kilit=true;
+    govde.classList.add('gezindi');
+    ciz(yon);
+    window.setTimeout(function(){kilit=false;},900);
+  }
+
+  function bitir(){
+    if(!tanitim) return;
+    tanitim=false;
+    govde.classList.remove('tanitimda');
+    reklam.classList.add('gitti');
+    window.setTimeout(function(){reklam.hidden=true;},1000);
+    adim=0;
+    ciz(0);
+  }
+
+  window.setTimeout(bitir,3000);
+
+  document.querySelector('.atla').addEventListener('click',function(e){
+    if(tanitim){e.preventDefault();bitir();}
+  });
+
+  window.addEventListener('wheel',function(e){
+    if(tanitim) return;
+    e.preventDefault();
+    if(kilit) return;
+    birikim+=e.deltaY;
+    if(Math.abs(birikim)<18) return;
+    var yon=birikim>0?1:-1;
+    birikim=0;
+    git(adim+yon);
+  },{passive:false});
+
+  window.addEventListener('keydown',function(e){
+    if(tanitim){
+      if(e.key==='Enter'||e.key===' '||e.key==='Escape'){e.preventDefault();bitir();}
+      return;
+    }
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();git(adim+1);}
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();git(adim-1);}
+    else if(e.key==='Home'){e.preventDefault();git(0);}
+    else if(e.key==='End'){e.preventDefault();git(SON-1);}
+  });
+
+  var basY=null;
+  window.addEventListener('touchstart',function(e){
+    if(e.touches.length===1) basY=e.touches[0].clientY;
+  },{passive:true});
+  window.addEventListener('touchend',function(e){
+    if(basY===null||tanitim) return;
+    var son=e.changedTouches[0].clientY;
+    var fark=basY-son;
+    basY=null;
+    if(Math.abs(fark)<40) return;
+    git(adim+(fark>0?1:-1));
+  },{passive:true});
+
+  ciz(0);
+})();
+</script>
+</body>
+</html>

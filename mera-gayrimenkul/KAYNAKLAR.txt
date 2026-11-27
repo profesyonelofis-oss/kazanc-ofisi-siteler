@@ -1,0 +1,30 @@
+EMLAK ATÖLYESİ ŞABLONU — KAYNAKLAR
+
+Site tek dosyadır (index.html); CSS ve JavaScript sayfanın içindedir.
+Açılışta üç saniyelik isim tanıtımı, ardından tek sahnede evin odaları
+fare tekerleğiyle ilerler. Akış yalnız fare tekerleği (ve eşdeğeri
+dokunma/klavye) ile ilerler; sayfa kaymaz. Çalışırken hiçbir CDN, font
+servisi, harita veya API çağrılmaz.
+
+ODALAR
+art/dis.jpg — havuzlu dış cephe, akşam
+art/giris.jpg — çift yükseklikli hol ve meşe merdiven
+art/oyun.jpg — bilardo masası, kitaplık ve bar nişi
+art/mutfak.jpg — meşe dolaplar, taş ada ve bahçeye açılan cam
+art/salon.jpg — çift yükseklikli salon ve kıyıya bakan cam cephe
+art/yatak.jpg — kıyıya bakan yatak odası
+art/banyo.jpg — traverten banyo, pirinç armatür
+art/teras.jpg — havuz kenarında akşam sofrası
+Kareler aynı evin odalarıdır; bu şablon için yapay zekâ ile üretildi.
+Stok fotoğraf veya başka bir siteye ait görsel kullanılmadı. Film, evin
+oda sayısına göre 5–8 sahne arasında üretilebilir.
+
+YAZI TİPLERİ
+Instrument Serif (normal + italik, latin/latin-ext) — SIL Open Font License
+Manrope (değişken) — SIL Open Font License
+Dosyalar fonts/ klasöründedir; sistemde kurulu olmaları gerekmez.
+
+ÖRNEK İÇERİK
+Portföy adı, oda bilgileri ve iletişim bilgileri kurgusaldır; sayfada
+"Örnek site · Tüm portföy bilgileri kurgusaldır" notu görünür.
+Form yoktur; randevu düğmesi e-posta bağlantısıdır.
