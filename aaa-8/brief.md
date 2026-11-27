@@ -1,8 +1,0 @@
-# Brief — aaa
-
-- Tür: Sektöre göre
-- Şehir: 
-- Hedef kitle: yerel karar verici, telefonla hızlı dönüş bekliyor.
-- Tek ana eylem: iletişim / teklif.
-- Kanıt kuralı: uydurma müşteri adı, puan veya sertifika yok.
-- Tek cümle: aaa, . İşi küçük adımlara böler, her adımı önceden fiyatlandırırız. Bu sayfa tek dosyadır; hızlı açılır ve mobilde aynı netliği korur.
