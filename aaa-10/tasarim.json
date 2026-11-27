@@ -1,0 +1,63 @@
+{
+  "acilis_ev_sayisi": 3,
+  "acilis_foto_saniye": 3.0,
+  "acilis_guven": "Bölge verisiyle fiyat; gizli komisyon yok.",
+  "acilis_kapanis": "firma reklamı + güven cümlesi",
+  "acilis_saniye": 8,
+  "agent": "AGENT_1 · Sektör & Marka DNA Stratejisti",
+  "bolum_slayt_fotograflari": 5,
+  "bolum_slaytlari": 4,
+  "bolumler": [
+    "Açılış klibi",
+    "Hero + canvas",
+    "Metrik şeridi",
+    "Bento hizmetler",
+    "Sekmeli vitrin",
+    "Galeri",
+    "Yorumlar",
+    "İletişim + Footer"
+  ],
+  "demo_etiketi": "DEMO",
+  "font": {
+    "baslik": "Instrument Serif",
+    "govde": "Instrument Sans"
+  },
+  "galeri_fotograflari": 3,
+  "hero_slayt_fotograflari": 3,
+  "hero_varyanti": "imza-1",
+  "kapanis_saniye": 5,
+  "kopya_korumasi": true,
+  "musteri_medyasi": {
+    "acilis": false,
+    "foto": 0,
+    "video": 0
+  },
+  "palet": {
+    "vurgu": "#c8b47e",
+    "vurgu2": "#2e61ea",
+    "vurgu3": "#75d18b",
+    "yazi": "#f4f1ea",
+    "yuzey": "#171d23",
+    "zemin": "#0e1216"
+  },
+  "panel_renkleri": {
+    "vurgu": false,
+    "yazi": false,
+    "zemin": false
+  },
+  "premium_katman": {
+    "doku": "gomulu-svg-grain",
+    "gorunurluk_derinligi": "css-view-timeline",
+    "kapsayici_sorgu": true,
+    "kaydirma_ilerlemesi": "css-scroll-timeline",
+    "mobil_form_16px": true,
+    "mobil_galeri": "scroll-snap",
+    "odak_durumu": ":has()",
+    "saydamlik_tercihi": true
+  },
+  "sanat_yonu": "Nesne",
+  "sektor": "Emlak",
+  "tema": "koyu",
+  "yon_aciklama": "Tam ekran görsel üstünde büyük tipografi; tek odak, sinematik giriş.",
+  "yon_bolum_sirasi": "Vitrin → Hizmetler → Yorumlar → SSS → İletişim"
+}

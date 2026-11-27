@@ -1,0 +1,20 @@
+{
+  "agent": "AGENT_2 · Sektörel Copywriter",
+  "dil": "tr",
+  "giris": "Bölgedeki gerçek satış verileriyle fiyatlandırma; alıcı ve satıcı için aynı bilgiyi paylaşan bir süreç. Gizli komisyon yok.",
+  "h1": "aaa Satılık konut <span class=\"h1-alt\">Türkiye</span>",
+  "hizmetler": [
+    {
+      "aciklama": "Bölge karşılaştırmalı fiyat raporu ve fotoğraflı tanıtım.",
+      "ad": "Satılık konut"
+    },
+    {
+      "aciklama": "Kiracı ön değerlendirmesi ve sözleşme kontrolü.",
+      "ad": "Kiralama"
+    },
+    {
+      "aciklama": "Kira getirisi ve bölge gelişimi analizi; tek sayfa özet.",
+      "ad": "Yatırım"
+    }
+  ]
+}
