@@ -125,28 +125,41 @@ html:not(.js) .reklam{display:none}
 .ust-tel b{font-weight:500;font-variant-numeric:tabular-nums}
 .ust-tel:hover,.ust-tel:focus-visible{background:var(--vurgu);border-color:var(--vurgu);color:var(--zemin)}
 
-/* Tek metin bloğu: kareler değişir, yazı yerinde durur. */
-.tek{position:absolute;z-index:6;left:var(--kenar);top:50%;width:min(560px,44vw);transform:translateY(-50%);pointer-events:none}
+/* Kartvizit: yazılar fotoğrafın üstünde cam bir kart gibi durur. Orta tuş
+   çevrildikçe karenin yanında kartın içi de değişir. */
+.tek{position:absolute;z-index:6;left:var(--kenar);top:50%;width:min(560px,45vw);transform:translateY(-50%);pointer-events:none}
 .tek>*{pointer-events:auto}
-.tek .etiket{display:flex;align-items:center;gap:12px;font:500 9px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:rgba(243,239,230,.72)}
-.tek .etiket::before{content:'';display:block;width:32px;height:1px;background:var(--vurgu)}
-.tek h2{font:400 clamp(38px,5.4vw,86px)/.95 var(--serif);letter-spacing:-.04em;margin:clamp(14px,2.4vh,24px) 0 clamp(12px,2vh,20px);color:rgba(243,239,230,.94);text-wrap:balance;text-shadow:0 2px 34px rgba(0,0,0,.34)}
-.tek h2 em{font-style:italic;color:rgba(243,239,230,.8)}
-.tek .aciklama{max-width:44ch;font-size:clamp(12px,1.02vw,15px);line-height:1.7;color:var(--soluk);text-shadow:0 1px 16px rgba(0,0,0,.5)}
-.kanit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(18px,3vh,28px);border-top:1px solid rgba(243,239,230,.18);padding-top:clamp(14px,2.2vh,20px)}
-.kanit div{display:flex;flex-direction:column;gap:4px;min-width:0}
-.kanit b{font:400 clamp(24px,2.4vw,34px)/1 var(--serif);letter-spacing:-.02em;color:var(--murekkep)}
-.kanit span{font:500 8.5px/1.45 var(--sans);letter-spacing:.1em;color:rgba(243,239,230,.56)}
-.son-iletisim{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,2.4vw,28px);margin-top:clamp(18px,3vh,28px)}
-.son-dugme{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:0 16px 0 21px;border:1px solid rgba(243,239,230,.45);border-radius:100px;background:rgba(10,11,10,.35);backdrop-filter:blur(8px);font:500 9px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--murekkep);overflow:hidden;isolation:isolate;position:relative;transition:color .4s,border-color .4s}
-.son-dugme::before{content:'';position:absolute;z-index:-1;inset:0;background:var(--murekkep);transform:translateY(101%);transition:transform .55s var(--ease)}
-.son-dugme:hover{color:var(--zemin);border-color:var(--murekkep)}
-.son-dugme:hover::before{transform:translateY(0)}
-.son-dugme span{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border:1px solid rgba(243,239,230,.32);border-radius:50%;font-size:10px;transition:transform .4s,border-color .4s}
-.son-dugme:hover span{transform:rotate(45deg);border-color:rgba(10,11,10,.3)}
-.son-bilgi{display:flex;flex-direction:column;gap:4px;font:500 9px/1.5 var(--sans);letter-spacing:.08em;color:rgba(243,239,230,.66)}
-.son-bilgi a:hover{color:var(--murekkep)}
-.son-not{max-width:46ch;margin-top:clamp(16px,2.6vh,24px);padding-top:12px;border-top:1px solid rgba(243,239,230,.14);font:500 8px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(243,239,230,.4)}
+.kart{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.5vh,16px);padding:clamp(18px,2vw,26px);border:1px solid rgba(243,239,230,.2);border-radius:18px;background:linear-gradient(158deg,rgba(12,13,12,.78),rgba(8,9,8,.6));backdrop-filter:blur(16px) saturate(1.15);-webkit-backdrop-filter:blur(16px) saturate(1.15);box-shadow:0 30px 70px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.07)}
+.kart::before{content:'';position:absolute;left:18px;right:38%;top:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--vurgu),transparent)}
+.kart-ust{display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 8px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(243,239,230,.5)}
+.kart-ust b{font-weight:500;color:rgba(243,239,230,.8);letter-spacing:.14em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Kart yüksekliği sahneye göre değişir: her vuruşta kart nefes alır. */
+.kart-govde{position:relative;transition:height .55s var(--ease);overflow:hidden}
+.kart-sahne{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;gap:9px;opacity:0;transform:translateY(9px);transition:opacity .5s var(--ease),transform .6s var(--ease);pointer-events:none}
+.kart-sahne.on{opacity:1;transform:none;pointer-events:auto}
+.kart-no{display:flex;align-items:center;gap:10px;font:500 7.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,239,230,.56)}
+.kart-no::before{content:'';display:block;width:22px;height:1px;background:var(--vurgu)}
+.kart-sahne h2{font:400 clamp(27px,3.3vw,45px)/1 var(--serif);letter-spacing:-.035em;margin:2px 0 0;color:rgba(243,239,230,.98);text-wrap:balance}
+.kart-sahne h2 em{font-style:italic;color:rgba(243,239,230,.78)}
+.kart-metin{font-size:clamp(12px,.95vw,13.5px);line-height:1.62;color:rgba(243,239,230,.78);max-width:44ch}
+.kart-kanit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(243,239,230,.14)}
+.kart-kanit b{display:block;font:400 clamp(19px,1.9vw,25px)/1 var(--serif);letter-spacing:-.02em;color:rgba(243,239,230,.96)}
+.kart-kanit span{display:block;margin-top:4px;font:500 8px/1.4 var(--sans);letter-spacing:.08em;color:rgba(243,239,230,.56)}
+.kart-kunye{display:flex;flex-wrap:wrap;gap:10px 24px;margin:4px 0 0;padding-top:11px;border-top:1px solid rgba(243,239,230,.14)}
+.kart-kunye div{display:flex;flex-direction:column;gap:3px;min-width:0;max-width:24ch}
+.kart-kunye dt{font:500 7.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,239,230,.52)}
+.kart-kunye dd{margin:0;font:400 11.5px/1.35 var(--sans);color:rgba(243,239,230,.92);overflow-wrap:anywhere}
+.kart-kunye .harita-baglanti{color:rgba(243,239,230,.95);text-decoration:underline;text-decoration-color:rgba(243,239,230,.34);text-underline-offset:3px}
+.kart-kunye .harita-baglanti:hover{color:var(--vurgu);text-decoration-color:var(--vurgu)}
+.kart-alt{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:clamp(10px,1.4vh,14px);border-top:1px solid rgba(243,239,230,.14)}
+.kart-dugme{display:inline-flex;align-items:center;gap:11px;height:44px;padding:0 14px 0 18px;border:1px solid rgba(243,239,230,.4);border-radius:100px;font:500 8.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--murekkep);transition:background .35s,color .35s,border-color .35s}
+.kart-dugme span{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border:1px solid rgba(243,239,230,.3);border-radius:50%;font-size:9px;transition:transform .4s,border-color .4s}
+.kart-dugme:hover{background:var(--murekkep);color:var(--zemin);border-color:var(--murekkep)}
+.kart-dugme:hover span{transform:rotate(45deg);border-color:rgba(10,11,10,.28)}
+.kart-baglar{display:flex;flex-direction:column;gap:2px;font:500 9px/1.55 var(--sans);letter-spacing:.05em;color:rgba(243,239,230,.7)}
+.kart-baglar a:hover,.kart-baglar a:focus-visible{color:var(--murekkep)}
+.kart-baglar .harita{color:rgba(243,239,230,.88);text-decoration:underline;text-decoration-color:rgba(243,239,230,.3);text-underline-offset:3px}
+.kart-not{font:500 7.5px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(243,239,230,.36)}
 
 /* Alt şerit: film şeridi — altı vuruş, biri yanar. */
 .alt{position:absolute;z-index:10;left:var(--kenar);right:var(--kenar);bottom:24px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;pointer-events:none}
@@ -174,11 +187,12 @@ body.gezindi .ipucu{opacity:.62}
   .film::before{background:
     linear-gradient(0deg,rgba(7,8,7,.96) 0%,rgba(7,8,7,.86) 30%,rgba(7,8,7,.34) 58%,transparent 78%),
     linear-gradient(180deg,rgba(7,8,7,.7) 0%,transparent 22%)}
-  .tek{top:auto;bottom:clamp(92px,15vh,124px);transform:none;width:auto;right:var(--kenar)}
-  .tek h2{font-size:clamp(34px,8.6vw,56px)}
-  .tek .aciklama{font-size:12px;max-width:36ch}
-  .kanit{gap:10px}
-  .kanit b{font-size:24px}
+  .tek{top:auto;bottom:clamp(84px,13vh,116px);transform:none;width:auto;right:var(--kenar)}
+  .kart{padding:15px;gap:9px}
+  .kart-sahne h2{font-size:clamp(26px,7vw,38px)}
+  .kart-metin{font-size:11.5px;max-width:38ch}
+  .kart-kunye{gap:8px 18px;padding-top:9px}
+  .kart-ust span{display:none}
   .alt{flex-direction:column;align-items:flex-start;gap:12px;bottom:16px}
   .ipucu{align-self:flex-end}
   .marka{font-size:15px}
@@ -187,17 +201,18 @@ body.gezindi .ipucu{opacity:.62}
   .reklam-ad{font-size:clamp(38px,11vw,58px)}
 }
 @media (max-height:640px){
-  .tek h2{font-size:clamp(30px,5.6vh,48px);margin:10px 0}
-  .tek .aciklama{font-size:11.5px;line-height:1.55}
-  .kanit{margin-top:12px;padding-top:10px}
-  .son-not{display:none}
-  .son-iletisim{margin-top:12px}
+  .kart-sahne h2{font-size:clamp(24px,4.4vh,32px)}
+  .kart-metin{font-size:11px;line-height:1.5}
+  .kart-not{display:none}
+  .kart{padding:14px;gap:8px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .kare img{transform:none!important}
 }
 html:not(.js) .kare[data-i="1"]{opacity:1;visibility:visible}
+html:not(.js) .kart-govde{height:auto}
+html:not(.js) .kart-sahne{position:static}
 html:not(.js) .ipucu{display:none}
 </style>
 </head>
@@ -238,19 +253,105 @@ html:not(.js) .ipucu{display:none}
   </header>
 
   <section class="tek" aria-live="polite">
-    <span class="etiket">Kafe &amp; Restoran · Alsancak, İzmir</span>
-    <h2>Sabah burada<br><em>başlar.</em></h2>
-    <p class="aciklama">Mevsiminde malzeme, günlük hazırlık ve sıcak bir servis. Mahallenin buluşma noktasında kahvaltıdan akşam yemeğine kadar yanınızdayız.</p>
-    <div class="kanit"><div><b>2016</b><span>beri aynı mahallede</span></div><div><b>Günlük</b><span>taze hazırlık</span></div><div><b>4.7/5</b><span>müşteri puanı</span></div></div>
-    <div class="son-iletisim">
-      <a class="son-dugme" href="mailto:merhaba@kayakahve.com">Randevu al <span>↗</span></a>
-      <div class="son-bilgi">
-        <a href="mailto:merhaba@kayakahve.com">merhaba@kayakahve.com</a>
-        <span>0555 111 22 33</span>
-        <span>Alsancak, İzmir</span>
+    <div class="kart">
+      <span class="kart-ust"><b>Kaya Kahve</b><span>Dijital kartvizit</span></span>
+      <div class="kart-govde">
+        <div class="kart-sahne on" data-i="1">
+          <span class="kart-no">01 / Giriş</span>
+          <h2>Sabah burada<br><em>başlar.</em></h2>
+          <div class="kart-metin">Mevsiminde malzeme, günlük hazırlık ve sıcak bir servis. Mahallenin buluşma noktasında kahvaltıdan akşam yemeğine kadar yanınızdayız.<div class="kart-kanit"><div><b>2016</b><span>beri aynı mahallede</span></div><div><b>Günlük</b><span>taze hazırlık</span></div><div><b>4.7/5</b><span>müşteri puanı</span></div></div></div>
+          <dl class="kart-kunye">
+            <div><dt>Konum</dt><dd>Alsancak, İzmir</dd></div>
+            <div><dt>Saat</dt><dd>09:00–23:00 · her gün</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="2">
+          <span class="kart-no">02 / Hizmet</span>
+          <h2>Kahvaltı</h2>
+          <div class="kart-metin">Serpme kahvaltı ve günlük fırın ürünleri; hafta sonu 09.00–13.00.</div>
+          <dl class="kart-kunye">
+            <div><dt>Konum</dt><dd>Alsancak, İzmir</dd></div>
+            <div><dt>Saat</dt><dd>09:00–23:00 · her gün</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="3">
+          <span class="kart-no">03 / Hizmet</span>
+          <h2>Öğle menüsü</h2>
+          <div class="kart-metin">Her gün değişen iki ana yemek, çorba ve tatlı; 12.00–15.00.</div>
+          <dl class="kart-kunye">
+            <div><dt>Konum</dt><dd>Alsancak, İzmir</dd></div>
+            <div><dt>Saat</dt><dd>09:00–23:00 · her gün</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="4">
+          <span class="kart-no">04 / Hizmet</span>
+          <h2>Özel davetler</h2>
+          <div class="kart-metin">Doğum günü ve küçük toplantılar için 20 kişiye kadar ayrı salon.</div>
+          <dl class="kart-kunye">
+            <div><dt>Konum</dt><dd>Alsancak, İzmir</dd></div>
+            <div><dt>Saat</dt><dd>09:00–23:00 · her gün</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="5">
+          <span class="kart-no">05 / Mekân</span>
+          <h2>Mekân ve konum</h2>
+          <div class="kart-metin">Adres, çalışma saati ve yol tarifi.</div>
+          <dl class="kart-kunye">
+            <div><dt>Adres</dt><dd>Alsancak, İzmir</dd></div>
+            <div><dt>Saat</dt><dd>09:00–23:00 · her gün</dd></div>
+            <div><dt>Harita</dt><dd><a class="harita-baglanti" href="https://www.google.com/maps/search/?api=1&query=Alsancak%2C%20%C4%B0zmir" target="_blank" rel="noopener">Google Maps ↗</a></dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="6">
+          <span class="kart-no">06 / Ekip</span>
+          <h2>Ekip ve yaklaşım</h2>
+          <div class="kart-metin">Masa ayırtmak veya özel davet planlamak için yazın; aynı gün dönüş yapıyoruz.</div>
+          <dl class="kart-kunye">
+            <div><dt>Yaklaşım</dt><dd>Günlük kavurma</dd></div>
+            <div><dt>Söz</dt><dd>Mevsiminde malzeme</dd></div>
+            <div><dt>Takip</dt><dd>Açık mutfak</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="7">
+          <span class="kart-no">07 / Detay</span>
+          <h2>Sabahın akışı</h2>
+          <div class="kart-metin">Her sabah fırın ve tezgâh tazelenir; günlük üretim, dünkü ürün yok.</div>
+          <dl class="kart-kunye">
+            <div><dt>Servis</dt><dd>Kahvaltı 09.00–13.00, öğle menüsü 12.00–15.00; mutfak akşama kadar açık.</dd></div>
+            <div><dt>Akşam</dt><dd>18.00'den sonra sakin ışık ve kısa menü; 20 kişiye kadar özel salon.</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="8">
+          <span class="kart-no">08 / Kayıt</span>
+          <h2>Randevu</h2>
+          <div class="kart-metin">09:00–23:00 arası açığız. Randevu için arayın ya da yazın; uygun saati aynı gün bildiriyoruz.</div>
+          <dl class="kart-kunye">
+            <div><dt>Telefon</dt><dd>0555 111 22 33</dd></div>
+            <div><dt>E-posta</dt><dd>merhaba@kayakahve.com</dd></div>
+            <div><dt>Saat</dt><dd>09:00–23:00 · her gün</dd></div>
+          </dl>
+        </div>
+        <div class="kart-sahne" data-i="9">
+          <span class="kart-no">09 / Davet</span>
+          <h2>Davet</h2>
+          <div class="kart-metin">Mevsiminde malzeme, günlük hazırlık ve sıcak bir servis. Mahallenin buluşma noktasında kahvaltıdan akşam yemeğine kadar yanınızdayız.</div>
+          <dl class="kart-kunye">
+            <div><dt>Adres</dt><dd>Alsancak, İzmir</dd></div>
+            <div><dt>Telefon</dt><dd>0555 111 22 33</dd></div>
+            <div><dt>Harita</dt><dd><a class="harita-baglanti" href="https://www.google.com/maps/search/?api=1&query=Alsancak%2C%20%C4%B0zmir" target="_blank" rel="noopener">Google Maps ↗</a></dd></div>
+          </dl>
+        </div>
       </div>
+      <div class="kart-alt">
+        <a class="kart-dugme" href="mailto:merhaba@kayakahve.com">Randevu al <span>↗</span></a>
+        <div class="kart-baglar">
+          <a href="tel:05551112233">0555 111 22 33</a>
+          <a href="mailto:merhaba@kayakahve.com">merhaba@kayakahve.com</a>
+          <a class="harita" href="https://www.google.com/maps/search/?api=1&query=Alsancak%2C%20%C4%B0zmir" target="_blank" rel="noopener">Haritada aç ↗</a>
+        </div>
+      </div>
+      <p class="kart-not">Örnek site · İşletme ve iletişim bilgileri kurgusaldır.</p>
     </div>
-    <p class="son-not">Örnek site · İşletme ve iletişim bilgileri kurgusaldır.</p>
   </section>
 
   <footer class="alt">
@@ -269,6 +370,8 @@ html:not(.js) .ipucu{display:none}
   var govde=document.body;
   var reklam=document.getElementById('reklam');
   var kareler=[].slice.call(document.querySelectorAll('.kare'));
+  var kart=[].slice.call(document.querySelectorAll('.kart-sahne'));
+  var kartGovde=document.querySelector('.kart-govde');
   var serit=[].slice.call(document.querySelectorAll('#serit b'));
   var sayac=document.getElementById('sayac');
   var sahneYazi=document.getElementById('sahne');
@@ -288,6 +391,12 @@ html:not(.js) .ipucu{display:none}
       k.classList.toggle('on',i===adim);
       k.setAttribute('aria-hidden',i===adim?'false':'true');
     });
+    /* Kartvizit de kareyle birlikte değişir: mekân, ekip, hizmet, kayıt. */
+    kart.forEach(function(s,i){
+      s.classList.toggle('on',i===adim);
+      s.setAttribute('aria-hidden',i===adim?'false':'true');
+    });
+    kartBoy();
     serit.forEach(function(b,i){
       b.classList.remove('on','gecti');
       void b.offsetWidth;
@@ -298,6 +407,13 @@ html:not(.js) .ipucu{display:none}
     sahneYazi.textContent=ADLAR[adim]||'';
     durum.textContent=(ADLAR[adim]||'Kare')+' · '+(adim+1)+' / '+SON;
     ipucuYazi.textContent=adim===0?'Fare tekerleğiyle ilerlet':(adim===SON-1?'Başa sarmak için devam et':'Devam etmek için çevir');
+  }
+
+  /* Kart, o anki sahnenin boyuna göre büyür ya da küçülür. */
+  function kartBoy(){
+    if(!kartGovde||!kart[adim]) return;
+    var h=kart[adim].offsetHeight;
+    if(h>0) kartGovde.style.height=h+'px';
   }
 
   function vur(){
@@ -388,6 +504,8 @@ html:not(.js) .ipucu{display:none}
     git(adim+(fark>0?1:-1),true);
   },{passive:true});
 
+  window.addEventListener('resize',kartBoy);
+  window.addEventListener('load',kartBoy);
   ciz();
 })();
 </script>

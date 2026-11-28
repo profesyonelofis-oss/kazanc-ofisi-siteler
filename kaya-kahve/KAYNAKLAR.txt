@@ -13,6 +13,12 @@ kareler arası geçiş kesme değil, kameranın devamı gibi okunur. Her
 karede kamera yavaşça kayar; geçişte gelen kare bulanıktan odağa
 oturur ve bir ışık süpürmesi kareyi takip eder. Stok fotoğraf yoktur.
 
+KARTVİZİT
+Soldaki cam kart orta tuşla (ve ok tuşlarıyla) değişir: her karede
+sektörün hizmeti, süreci, ekibi, adresi ve çalışma saati yazar.
+“Haritada aç” bağlantısı Google Maps aramasını açar; harita gömülü
+değildir, sayfa çalışırken dış istek yapılmaz.
+
 YAZI TİPLERİ
 Instrument Serif (normal + italik) — SIL Open Font License
 Manrope (değişken) — SIL Open Font License
