@@ -6,8 +6,8 @@ ardından film kendi akar; fare tekerleğiyle ileri ve geri sarılır.
 Sayfa kaymaz; çalışırken hiçbir CDN, font servisi veya API çağrılmaz.
 
 GÖRSELLER
-art/1.jpg … art/6.jpg — aynı işletmenin geniş, iş, detay ve yakın
-plan kareleri. Altı fotoğraf ücretsiz yapay zekâ üretimiyle
+art/1.jpg … art/9.jpg — aynı işletmenin mekân, iş, ekip, detay ve
+yakın plan kareleri. Dokuz fotoğraf ücretsiz yapay zekâ üretimiyle
 hazırlandı; aynı mekân, aynı ışık ve aynı paletle üretildikleri için
 kareler arası geçiş kesme değil, kameranın devamı gibi okunur. Her
 karede kamera yavaşça kayar; geçişte gelen kare bulanıktan odağa

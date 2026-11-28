@@ -31,7 +31,7 @@
   --kenar:clamp(24px,5.5vw,92px);
   --ust:82px;
   /* Tek karenin ekranda kalma süresi; JS aynı değeri okur. */
-  --vurus:5000ms;
+  --vurus:4600ms;
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
@@ -88,7 +88,7 @@ html:not(.js) .reklam{display:none}
 @keyframes kamera{
   0%{transform:scale(var(--s1,1.06)) translate3d(var(--x1,0),var(--y1,0),0)}
   100%{transform:scale(var(--s2,1.14)) translate3d(var(--x2,0),var(--y2,0),0)}}
-/* Altı kare, altı kamera hareketi: biri içeri, biri geri, biri yana kayar.
+/* Dokuz kare, dokuz kamera hareketi: biri içeri, biri geri, biri yana kayar.
    Yön her karede değiştiği için göz tek bir çekim izler gibi okur. */
 .kam-a{--odak:50% 48%;--s1:1.05;--s2:1.15;--x1:0;--y1:0;--x2:-1.2%;--y2:-1.4%}
 .kam-b{--odak:57% 45%;--s1:1.14;--s2:1.04;--x1:1.3%;--y1:-.4%;--x2:-1.1%;--y2:.6%}
@@ -96,6 +96,9 @@ html:not(.js) .reklam{display:none}
 .kam-d{--odak:52% 60%;--s1:1.12;--s2:1.03;--x1:.5%;--y1:1.6%;--x2:-1.2%;--y2:-.5%}
 .kam-e{--odak:47% 42%;--s1:1.03;--s2:1.13;--x1:-1.6%;--y1:-.5%;--x2:1.1%;--y2:1.2%}
 .kam-f{--odak:50% 52%;--s1:1.13;--s2:1.04;--x1:1.1%;--y1:-1.5%;--x2:-1.3%;--y2:1%}
+.kam-g{--odak:48% 50%;--s1:1.06;--s2:1.16;--x1:-.6%;--y1:0;--x2:1.4%;--y2:-1.2%}
+.kam-h{--odak:54% 47%;--s1:1.15;--s2:1.05;--x1:1.4%;--y1:.5%;--x2:-1%;--y2:-.8%}
+.kam-i{--odak:46% 57%;--s1:1.05;--s2:1.14;--x1:-1.2%;--y1:1.1%;--x2:1.3%;--y2:-.6%}
 
 /* Yazının okunması için sahnenin üstünde yumuşak perde. */
 .film::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
@@ -150,7 +153,7 @@ html:not(.js) .reklam{display:none}
 .alt>*{pointer-events:auto}
 .zaman{display:flex;align-items:center;gap:14px;font:400 12px/1 var(--serif);color:rgba(243,239,230,.8)}
 .zaman #sayac{font-variant-numeric:tabular-nums;min-width:1.6em}
-.serit{display:flex;align-items:center;gap:5px;width:clamp(120px,16vw,240px)}
+.serit{display:flex;align-items:center;gap:5px;width:clamp(140px,19vw,300px)}
 .serit b{position:relative;display:block;flex:1;height:2px;background:rgba(243,239,230,.2);overflow:hidden}
 .serit b::after{content:'';position:absolute;inset:0;background:var(--vurgu);transform:scaleX(0);transform-origin:0 50%}
 .serit b.gecti::after{transform:scaleX(1)}
@@ -220,8 +223,11 @@ html:not(.js) .ipucu{display:none}
     <figure class="kare kam-b" data-i="2" aria-hidden="true"><img src="art/2.jpg" alt="" decoding="async"></figure>
     <figure class="kare kam-c" data-i="3" aria-hidden="true"><img src="art/3.jpg" alt="" decoding="async"></figure>
     <figure class="kare kam-d" data-i="4" aria-hidden="true"><img src="art/4.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-e" data-i="5" aria-hidden="true"><img src="art/5.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-f" data-i="6" aria-hidden="true"><img src="art/6.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-e" data-i="5" aria-hidden="true"><img src="art/7.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-f" data-i="6" aria-hidden="true"><img src="art/8.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-g" data-i="7" aria-hidden="true"><img src="art/9.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-h" data-i="8" aria-hidden="true"><img src="art/5.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-i" data-i="9" aria-hidden="true"><img src="art/6.jpg" alt="" decoding="async"></figure>
   </div>
   <div class="vurus" id="vurus" aria-hidden="true"></div>
   <div class="isik" id="isik" aria-hidden="true"></div>
@@ -250,7 +256,7 @@ html:not(.js) .ipucu{display:none}
   <footer class="alt">
     <div class="zaman" aria-hidden="true">
       <span id="sayac">01</span>
-      <span class="serit" id="serit"><b data-i="1"></b><b data-i="2"></b><b data-i="3"></b><b data-i="4"></b><b data-i="5"></b><b data-i="6"></b></span>
+      <span class="serit" id="serit"><b data-i="1"></b><b data-i="2"></b><b data-i="3"></b><b data-i="4"></b><b data-i="5"></b><b data-i="6"></b><b data-i="7"></b><b data-i="8"></b><b data-i="9"></b></span>
       <small id="sahne">Giriş</small>
     </div>
     <span class="ipucu"><span class="teker"><i></i></span><span class="ipucu-yazi">Fare tekerleğiyle ilerlet</span></span>
@@ -270,7 +276,7 @@ html:not(.js) .ipucu{display:none}
   var durum=document.getElementById('durum');
   var vurus=document.getElementById('vurus');
   var isik=document.getElementById('isik');
-  var ADLAR=["Giriş","Kahvaltı","Öğle menüsü","Özel davetler","Kayıt","Davet"];
+  var ADLAR=["Giriş","Kahvaltı","Öğle menüsü","Özel davetler","Mekân","Ekip","Detay","Kayıt","Davet"];
   var SON=kareler.length, adim=0, kilit=false, tanitim=true, birikim=0, zaman=null;
   var SURE=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--vurus'),10)||4000;
   var AZ=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
