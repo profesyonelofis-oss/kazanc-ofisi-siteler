@@ -52,18 +52,22 @@ h1,h2,p,figure{margin:0}
 @keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,6%)}80%{transform:translate(5%,-3%)}}
 
 /* ——— 04 · Üç saniyelik isim reklamı ——— */
-.reklam{position:fixed;inset:0;z-index:500;background:#070807;color:var(--murekkep);display:grid;place-items:center;transition:opacity .9s var(--ease),visibility .9s}
+/* Marka açılışı sayfanın üst bölümünde, ortada ve büyük durur. */
+.reklam{position:fixed;inset:0;z-index:500;background:#070807;color:var(--murekkep);display:grid;justify-items:center;align-items:start;padding-block-start:clamp(54px,13vh,140px);transition:opacity .9s var(--ease),visibility .9s}
 .reklam.gitti{opacity:0;visibility:hidden;pointer-events:none}
 .reklam[hidden]{display:none}
-.reklam::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,color-mix(in srgb,var(--vurgu) 16%,transparent),transparent 60%)}
-.reklam-orta{text-align:center;padding:0 var(--kenar);position:relative;z-index:1}
-.reklam-ad{font:400 clamp(44px,9vw,138px)/.9 var(--serif);letter-spacing:-.045em;text-wrap:balance;animation:adGir 1.6s var(--ease) both}
-.reklam-ad::after{content:'';display:block;width:min(210px,28vw);height:1px;margin:clamp(22px,4vh,38px) auto 0;background:linear-gradient(90deg,transparent,var(--vurgu),transparent);animation:cizgiGir 1.4s var(--ease) .35s both}
-@keyframes adGir{0%{opacity:0;filter:blur(14px);letter-spacing:.02em;transform:scale(1.025)}100%{opacity:1;filter:blur(0);letter-spacing:-.045em;transform:scale(1)}}
+.reklam::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 46% at 50% 16%,color-mix(in srgb,var(--vurgu) 26%,transparent),transparent 68%)}
+.reklam-orta{text-align:center;padding:0 var(--kenar);position:relative;z-index:1;max-width:min(1180px,94vw)}
+.reklam-ust{display:inline-flex;align-items:center;gap:10px;margin-bottom:clamp(14px,2.6vh,26px);font:500 clamp(9px,1vw,11px)/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:rgba(243,239,230,.6);animation:telGir 1.2s var(--ease) both}
+.reklam-ust::before{content:'';width:clamp(18px,2.4vw,30px);height:1px;background:var(--vurgu)}
+.reklam-ad{font:400 clamp(58px,12.6vw,196px)/.85 var(--serif);letter-spacing:-.05em;text-wrap:balance;overflow-wrap:anywhere;text-shadow:0 30px 90px rgba(0,0,0,.6);animation:adGir 1.6s var(--ease) both}
+.reklam-ad i{font-style:normal;font-size:.11em;line-height:1;vertical-align:super;margin-left:.14em;color:var(--vurgu)}
+.reklam-ad::after{content:'';display:block;width:min(320px,36vw);height:1px;margin:clamp(22px,3.6vh,40px) auto 0;background:linear-gradient(90deg,transparent,var(--vurgu),transparent);animation:cizgiGir 1.4s var(--ease) .35s both}
+@keyframes adGir{0%{opacity:0;filter:blur(14px);letter-spacing:.02em;transform:scale(1.025)}100%{opacity:1;filter:blur(0);letter-spacing:-.05em;transform:scale(1)}}
 @keyframes cizgiGir{0%{opacity:0;transform:scaleX(0)}100%{opacity:1;transform:scaleX(1)}}
 /* Açılışta işletme adının altında telefon: tek dokunuşla arama. */
 .reklam-tel{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);margin-top:clamp(12px,2.2vh,20px);animation:telGir 1.5s var(--ease) .45s both}
-.reklam-tel a{font:400 clamp(18px,2.2vw,30px)/1 var(--serif);letter-spacing:-.01em;color:var(--murekkep);padding-bottom:6px;border-bottom:1px solid rgba(243,239,230,.22);transition:color .3s,border-color .3s}
+.reklam-tel a{font:400 clamp(20px,2.5vw,34px)/1 var(--serif);letter-spacing:-.01em;color:var(--murekkep);padding-bottom:6px;border-bottom:1px solid rgba(243,239,230,.22);transition:color .3s,border-color .3s}
 .reklam-tel a:hover{color:var(--vurgu);border-color:var(--vurgu)}
 @keyframes telGir{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
 .reklam-alt{position:absolute;left:clamp(34px,6vw,96px);right:clamp(34px,6vw,96px);bottom:clamp(30px,5vh,54px)}
@@ -118,7 +122,7 @@ html:not(.js) .reklam{display:none}
 
 /* Üst şerit: her karede işletme adı ve telefon düğmesi */
 .ust{position:absolute;z-index:10;top:0;left:0;right:0;height:var(--ust);padding:0 var(--kenar);display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,24px);pointer-events:none}
-.marka{position:relative;display:block;min-width:0;font:400 clamp(17px,1.55vw,22px)/1.1 var(--serif);letter-spacing:-.02em;color:var(--murekkep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.marka{position:relative;display:block;min-width:0;font:400 clamp(19px,1.8vw,27px)/1.1 var(--serif);letter-spacing:-.02em;color:var(--murekkep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .marka i{font-style:normal;font-size:8px;margin-left:5px;vertical-align:top;color:var(--vurgu)}
 .ust-tel{position:relative;display:inline-flex;align-items:center;gap:9px;flex:none;height:40px;padding:0 16px;border:1px solid rgba(243,239,230,.34);border-radius:100px;background:rgba(10,11,10,.38);backdrop-filter:blur(10px);font:500 11px/1 var(--sans);letter-spacing:.05em;color:var(--murekkep);white-space:nowrap;pointer-events:auto;transition:background .35s,color .35s,border-color .35s}
 .ust-tel svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
@@ -129,13 +133,14 @@ html:not(.js) .reklam{display:none}
    çevrildikçe karenin yanında kartın içi de değişir. */
 .tek{position:absolute;z-index:6;left:var(--kenar);top:50%;width:min(560px,45vw);transform:translateY(-50%);pointer-events:none}
 .tek>*{pointer-events:auto}
-.kart{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.5vh,16px);padding:clamp(18px,2vw,26px);border:1px solid rgba(243,239,230,.2);border-radius:18px;background:linear-gradient(158deg,rgba(12,13,12,.78),rgba(8,9,8,.6));backdrop-filter:blur(16px) saturate(1.15);-webkit-backdrop-filter:blur(16px) saturate(1.15);box-shadow:0 30px 70px -30px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.07)}
+.kart{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.5vh,16px);padding:clamp(18px,2vw,26px);border:1px solid rgba(243,239,230,.26);border-radius:18px;background:linear-gradient(158deg,rgba(11,12,11,.32),rgba(8,9,8,.14));backdrop-filter:blur(22px) saturate(1.2) brightness(.86);-webkit-backdrop-filter:blur(22px) saturate(1.2) brightness(.86);box-shadow:0 26px 60px -34px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.1)}
 .kart::before{content:'';position:absolute;left:18px;right:38%;top:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--vurgu),transparent)}
 .kart-ust{display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 8px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(243,239,230,.5)}
 .kart-ust b{font-weight:500;color:rgba(243,239,230,.8);letter-spacing:.14em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-/* Kart yüksekliği sahneye göre değişir: her vuruşta kart nefes alır. */
-.kart-govde{position:relative;transition:height .55s var(--ease);overflow:hidden}
-.kart-sahne{position:absolute;top:0;left:0;right:0;display:flex;flex-direction:column;gap:9px;opacity:0;transform:translateY(9px);transition:opacity .5s var(--ease),transform .6s var(--ease);pointer-events:none}
+/* Dokuz kartvizit tek kutuda ve eşit boyda: geçişte kart zıplamaz,
+   içerik kutunun ortasına oturur. */
+.kart-govde{display:grid;overflow:hidden}
+.kart-sahne{grid-area:1/1;justify-content:center;display:flex;flex-direction:column;gap:9px;opacity:0;transform:translateY(9px);transition:opacity .5s var(--ease),transform .6s var(--ease);pointer-events:none}
 .kart-sahne.on{opacity:1;transform:none;pointer-events:auto}
 .kart-no{display:flex;align-items:center;gap:10px;font:500 7.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,239,230,.56)}
 .kart-no::before{content:'';display:block;width:22px;height:1px;background:var(--vurgu)}
@@ -198,7 +203,8 @@ body.gezindi .ipucu{opacity:.62}
   .marka{font-size:15px}
   .ust-tel{height:34px;padding:0 11px;gap:7px;font-size:9.5px}
   .ust-tel svg{width:12px;height:12px}
-  .reklam-ad{font-size:clamp(38px,11vw,58px)}
+  .reklam{padding-block-start:clamp(46px,11vh,92px)}
+  .reklam-ad{font-size:clamp(46px,14vw,84px)}
 }
 @media (max-height:640px){
   .kart-sahne h2{font-size:clamp(24px,4.4vh,32px)}
@@ -211,8 +217,6 @@ body.gezindi .ipucu{opacity:.62}
   .kare img{transform:none!important}
 }
 html:not(.js) .kare[data-i="1"]{opacity:1;visibility:visible}
-html:not(.js) .kart-govde{height:auto}
-html:not(.js) .kart-sahne{position:static}
 html:not(.js) .ipucu{display:none}
 </style>
 </head>
@@ -222,7 +226,8 @@ html:not(.js) .ipucu{display:none}
 
 <div class="reklam" id="reklam">
   <div class="reklam-orta">
-    <div class="reklam-ad">Kaya Kahve</div>
+    <div class="reklam-ust">Kafe &amp; Restoran</div>
+    <div class="reklam-ad">Kaya Kahve<i>●</i></div>
     <div class="reklam-tel"><a href="tel:05551112233">0555 111 22 33</a></div>
   </div>
   <div class="reklam-alt">
@@ -371,7 +376,6 @@ html:not(.js) .ipucu{display:none}
   var reklam=document.getElementById('reklam');
   var kareler=[].slice.call(document.querySelectorAll('.kare'));
   var kart=[].slice.call(document.querySelectorAll('.kart-sahne'));
-  var kartGovde=document.querySelector('.kart-govde');
   var serit=[].slice.call(document.querySelectorAll('#serit b'));
   var sayac=document.getElementById('sayac');
   var sahneYazi=document.getElementById('sahne');
@@ -396,7 +400,6 @@ html:not(.js) .ipucu{display:none}
       s.classList.toggle('on',i===adim);
       s.setAttribute('aria-hidden',i===adim?'false':'true');
     });
-    kartBoy();
     serit.forEach(function(b,i){
       b.classList.remove('on','gecti');
       void b.offsetWidth;
@@ -407,13 +410,6 @@ html:not(.js) .ipucu{display:none}
     sahneYazi.textContent=ADLAR[adim]||'';
     durum.textContent=(ADLAR[adim]||'Kare')+' · '+(adim+1)+' / '+SON;
     ipucuYazi.textContent=adim===0?'Fare tekerleğiyle ilerlet':(adim===SON-1?'Başa sarmak için devam et':'Devam etmek için çevir');
-  }
-
-  /* Kart, o anki sahnenin boyuna göre büyür ya da küçülür. */
-  function kartBoy(){
-    if(!kartGovde||!kart[adim]) return;
-    var h=kart[adim].offsetHeight;
-    if(h>0) kartGovde.style.height=h+'px';
   }
 
   function vur(){
@@ -504,8 +500,6 @@ html:not(.js) .ipucu{display:none}
     git(adim+(fark>0?1:-1),true);
   },{passive:true});
 
-  window.addEventListener('resize',kartBoy);
-  window.addEventListener('load',kartBoy);
   ciz();
 })();
 </script>
