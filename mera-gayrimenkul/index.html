@@ -55,15 +55,16 @@ h1,h2,p,figure{margin:0}
 .reklam.gitti{opacity:0;visibility:hidden;pointer-events:none}
 .reklam[hidden]{display:none}
 .reklam::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(172,132,90,.10),transparent 58%)}
-.reklam-cerceve{position:absolute;inset:clamp(14px,3vw,42px);border:1px solid rgba(244,238,226,.12);pointer-events:none}
-.reklam-cerceve::before,.reklam-cerceve::after{content:'';position:absolute;width:15px;height:15px;border:1px solid rgba(244,238,226,.3)}
-.reklam-cerceve::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
-.reklam-cerceve::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
 .reklam-orta{text-align:center;padding:0 var(--kenar);position:relative;z-index:1}
 .reklam-ad{font:400 clamp(44px,9.4vw,142px)/.9 var(--serif);letter-spacing:-.045em;text-wrap:balance;animation:adGir 1.6s var(--ease) both;text-shadow:0 2px 60px rgba(0,0,0,.4)}
 .reklam-ad::after{content:'';display:block;width:min(220px,30vw);height:1px;margin:clamp(22px,4vh,38px) auto 0;background:linear-gradient(90deg,transparent,rgba(244,238,226,.5),transparent);animation:cizgiGir 1.4s var(--ease) .35s both}
 @keyframes adGir{0%{opacity:0;filter:blur(14px);letter-spacing:.02em;transform:scale(1.025)}100%{opacity:1;filter:blur(0);letter-spacing:-.045em;transform:scale(1)}}
 @keyframes cizgiGir{0%{opacity:0;transform:scaleX(0)}100%{opacity:.8;transform:scaleX(1)}}
+/* Açılışta işletme adının altında telefon: tek dokunuşla arama. */
+.reklam-tel{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);margin-top:clamp(12px,2.2vh,20px);animation:telGir 1.5s var(--ease) .45s both}
+.reklam-tel a{font:400 clamp(18px,2.2vw,30px)/1 var(--serif);letter-spacing:-.01em;color:var(--fildisi);padding-bottom:6px;border-bottom:1px solid rgba(244,238,226,.22);transition:color .3s,border-color .3s}
+.reklam-tel a:hover{color:var(--kum);border-color:var(--kum)}
+@keyframes telGir{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
 .reklam-alt{position:absolute;left:clamp(34px,6vw,96px);right:clamp(34px,6vw,96px);bottom:clamp(30px,5vh,54px)}
 .reklam-zaman{display:block;height:1px;background:rgba(244,238,226,.16);overflow:hidden}
 .reklam-zaman i{display:block;height:100%;width:100%;background:var(--kum);transform-origin:0 50%;transform:scaleX(0);animation:zaman 3s linear forwards}
@@ -92,10 +93,15 @@ body.son .perde{background:
   linear-gradient(0deg,rgba(4,7,5,.84),rgba(4,7,5,.22))}
 body.son .kat.on img{filter:blur(3px) brightness(.8) saturate(.92)}
 
-/* Üst şerit: yalnız marka */
-.ust{position:absolute;z-index:10;top:0;left:0;right:0;height:var(--ust);padding:0 var(--kenar);display:flex;align-items:center;pointer-events:none}
-.marka{display:inline-flex;align-items:flex-start;gap:4px;font:400 26px/.9 var(--serif);letter-spacing:-.035em;color:var(--fildisi);pointer-events:auto}
-.marka i{font-style:normal;font-size:9px;margin-top:2px;color:var(--kum)}
+/* Üst şerit: her sahnede işletme adı ve telefon düğmesi */
+.ust{position:absolute;z-index:10;top:0;left:0;right:0;height:var(--ust);padding:0 var(--kenar);display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,24px);pointer-events:none}
+.ust::before{content:'';position:absolute;left:0;right:0;top:0;height:calc(var(--ust) + 30px);background:linear-gradient(180deg,rgba(5,9,6,.66),rgba(5,9,6,0));pointer-events:none}
+.marka{position:relative;display:block;min-width:0;font:400 clamp(17px,1.55vw,22px)/1.1 var(--serif);letter-spacing:-.02em;color:var(--fildisi);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 18px rgba(0,0,0,.4)}
+.marka i{font-style:normal;font-size:8px;margin-left:5px;vertical-align:top;color:var(--kum)}
+.ust-tel{position:relative;display:inline-flex;align-items:center;gap:9px;flex:none;height:40px;padding:0 16px;border:1px solid rgba(244,238,226,.34);border-radius:100px;background:rgba(5,9,6,.36);backdrop-filter:blur(10px);font:500 11px/1 var(--sans);letter-spacing:.05em;color:var(--fildisi);white-space:nowrap;pointer-events:auto;transition:background .35s,color .35s,border-color .35s}
+.ust-tel svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ust-tel b{font-weight:500;font-variant-numeric:tabular-nums}
+.ust-tel:hover,.ust-tel:focus-visible{background:var(--fildisi);border-color:var(--fildisi);color:var(--yesil)}
 
 /* Şeffaf, dönen yazılar */
 .metinler{position:absolute;z-index:6;left:var(--kenar);right:var(--kenar);bottom:clamp(92px,14vh,144px);perspective:1200px;pointer-events:none}
@@ -146,7 +152,9 @@ body.gezindi .ipucu{opacity:.55}
 }
 @media (max-width:560px){
   :root{--ust:64px}
-  .marka{font-size:21px}
+  .marka{font-size:15px}
+  .ust-tel{height:34px;padding:0 11px;gap:7px;font-size:9.5px}
+  .ust-tel svg{width:12px;height:12px}
   .metin h2{font-size:clamp(32px,10.2vw,50px)}
   .metin .aciklama{font-size:12px;max-width:34ch}
   .reklam-ad{font-size:clamp(38px,11.5vw,58px)}
@@ -177,9 +185,9 @@ html:not(.js) .ipucu{display:none}
 <a class="atla" href="#sahneler">Filme geç</a>
 
 <div class="reklam" id="reklam">
-  <div class="reklam-cerceve" aria-hidden="true"></div>
   <div class="reklam-orta">
     <div class="reklam-ad">Mera Gayrimenkul</div>
+    <div class="reklam-tel"><a href="tel:05551112233">0555 111 22 33</a></div>
   </div>
   <div class="reklam-alt">
     <span class="reklam-zaman"><i></i></span>
@@ -202,7 +210,8 @@ html:not(.js) .ipucu{display:none}
   <div class="perde" aria-hidden="true"></div>
 
   <header class="ust">
-    <span class="marka">mera<i>●</i></span>
+    <span class="marka">Mera Gayrimenkul<i>●</i></span>
+    <a class="ust-tel" href="tel:05551112233" aria-label="Telefon: 0555 111 22 33"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg><b>0555 111 22 33</b></a>
   </header>
 
   <div class="metinler" id="metinler" aria-live="polite">

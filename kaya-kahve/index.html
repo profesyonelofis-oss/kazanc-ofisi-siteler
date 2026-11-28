@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>Kaya Kahve — Kafe &amp; Restoran</title>
+<meta name="description" content="Kaya Kahve — Kafe &amp; Restoran. Altı sahnede, fare tekerleğiyle ilerleyen kısa bir tanıtım filmi.">
+<meta name="theme-color" content="#0a0b0a">
+<link rel="preload" as="font" type="font/woff2" href="fonts/instrument-serif-400.woff2" crossorigin>
+<link rel="preload" as="image" href="art/1.jpg">
+<style>
+/* ——— 01 · Fontlar ——— */
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-400-ext.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-italic-ext.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Manrope';src:url('fonts/manrope-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
+
+/* ——— 02 · Tokenlar ——— */
+:root{
+  --zemin:#0a0b0a;
+  --zemin-2:#101310;
+  --murekkep:#f3efe6;
+  --soluk:rgba(243,239,230,.62);
+  --vurgu:#b45309;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Manrope','Helvetica Neue',Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-yavas:cubic-bezier(.16,1,.3,1);
+  --kenar:clamp(24px,5.5vw,92px);
+  --ust:82px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+html{background:var(--zemin);-webkit-text-size-adjust:100%;scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0;display:none}
+body{margin:0;overflow:hidden;overscroll-behavior:none;background:var(--zemin);color:var(--murekkep);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--vurgu);color:#fff}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,p,figure{margin:0}
+:focus-visible{outline:2px solid var(--vurgu);outline-offset:5px}
+.sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.atla{position:fixed;left:16px;top:-90px;z-index:700;background:var(--murekkep);color:var(--zemin);padding:12px 18px;font-size:12px;transition:top .3s}
+.atla:focus{top:14px}
+
+/* ——— 03 · Doku ——— */
+.grain{position:fixed;inset:-40%;z-index:600;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");animation:grain 7s steps(7) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,6%)}80%{transform:translate(5%,-3%)}}
+
+/* ——— 04 · Üç saniyelik isim reklamı ——— */
+.reklam{position:fixed;inset:0;z-index:500;background:#070807;color:var(--murekkep);display:grid;place-items:center;transition:opacity .9s var(--ease),visibility .9s}
+.reklam.gitti{opacity:0;visibility:hidden;pointer-events:none}
+.reklam[hidden]{display:none}
+.reklam::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,color-mix(in srgb,var(--vurgu) 16%,transparent),transparent 60%)}
+.reklam-orta{text-align:center;padding:0 var(--kenar);position:relative;z-index:1}
+.reklam-ad{font:400 clamp(44px,9vw,138px)/.9 var(--serif);letter-spacing:-.045em;text-wrap:balance;animation:adGir 1.6s var(--ease) both}
+.reklam-ad::after{content:'';display:block;width:min(210px,28vw);height:1px;margin:clamp(22px,4vh,38px) auto 0;background:linear-gradient(90deg,transparent,var(--vurgu),transparent);animation:cizgiGir 1.4s var(--ease) .35s both}
+@keyframes adGir{0%{opacity:0;filter:blur(14px);letter-spacing:.02em;transform:scale(1.025)}100%{opacity:1;filter:blur(0);letter-spacing:-.045em;transform:scale(1)}}
+@keyframes cizgiGir{0%{opacity:0;transform:scaleX(0)}100%{opacity:1;transform:scaleX(1)}}
+/* Açılışta işletme adının altında telefon: tek dokunuşla arama. */
+.reklam-tel{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);margin-top:clamp(12px,2.2vh,20px);animation:telGir 1.5s var(--ease) .45s both}
+.reklam-tel a{font:400 clamp(18px,2.2vw,30px)/1 var(--serif);letter-spacing:-.01em;color:var(--murekkep);padding-bottom:6px;border-bottom:1px solid rgba(243,239,230,.22);transition:color .3s,border-color .3s}
+.reklam-tel a:hover{color:var(--vurgu);border-color:var(--vurgu)}
+@keyframes telGir{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
+.reklam-alt{position:absolute;left:clamp(34px,6vw,96px);right:clamp(34px,6vw,96px);bottom:clamp(30px,5vh,54px)}
+.reklam-zaman{display:block;height:1px;background:rgba(243,239,230,.16);overflow:hidden}
+.reklam-zaman i{display:block;height:100%;width:100%;background:var(--vurgu);transform-origin:0 50%;transform:scaleX(0);animation:zaman 3s linear forwards}
+@keyframes zaman{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+html:not(.js) .reklam{display:none}
+
+/* ——— 05 · Sahne: solda yazı, sağda fotoğraf ——— */
+.sahne{position:fixed;inset:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:var(--zemin)}
+.sahne::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse at 18% 42%,color-mix(in srgb,var(--vurgu) 13%,transparent),transparent 56%),
+  linear-gradient(180deg,var(--zemin-2),var(--zemin) 60%);z-index:0}
+.foto{position:absolute;inset:0 0 0 auto;width:54%;overflow:hidden;z-index:1;background:var(--zemin-2)}
+.foto::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background:
+  linear-gradient(90deg,var(--zemin) 0%,rgba(10,11,10,.38) 9%,transparent 26%),
+  linear-gradient(0deg,rgba(10,11,10,.72) 0%,transparent 34%)}
+.foto::after{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(243,239,230,.16);z-index:4}
+.kat{position:absolute;inset:0;opacity:0;transition:opacity 1.05s var(--ease-yavas);will-change:opacity,transform;z-index:0}
+.kat.on{opacity:1;z-index:2}
+.kat img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);transition:transform 11s linear;filter:saturate(.96) contrast(1.02)}
+.kat.on img{transform:scale(1)}
+.kat.giris-alt{animation:katAlt 1.25s var(--ease-yavas) both}
+.kat.giris-ust{animation:katUst 1.25s var(--ease-yavas) both}
+@keyframes katAlt{0%{clip-path:inset(100% 0 0 0);opacity:.35;transform:translate3d(0,3%,0) scale(1.05)}55%{opacity:1}100%{clip-path:inset(0 0 0 0);opacity:1;transform:none}}
+@keyframes katUst{0%{clip-path:inset(0 0 100% 0);opacity:.35;transform:translate3d(0,-3%,0) scale(1.05)}55%{opacity:1}100%{clip-path:inset(0 0 0 0);opacity:1;transform:none}}
+
+/* Üst şerit: her sahnede işletme adı ve telefon düğmesi */
+.ust{position:absolute;z-index:10;top:0;left:0;right:0;height:var(--ust);padding:0 var(--kenar);display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,24px);pointer-events:none}
+.ust::before{content:'';position:absolute;left:0;right:0;top:0;height:calc(var(--ust) + 30px);background:linear-gradient(180deg,rgba(8,10,8,.72),rgba(8,10,8,0));pointer-events:none}
+.marka{position:relative;display:block;min-width:0;font:400 clamp(17px,1.55vw,22px)/1.1 var(--serif);letter-spacing:-.02em;color:var(--murekkep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.marka i{font-style:normal;font-size:8px;margin-left:5px;vertical-align:top;color:var(--vurgu)}
+.ust-tel{position:relative;display:inline-flex;align-items:center;gap:9px;flex:none;height:40px;padding:0 16px;border:1px solid rgba(243,239,230,.34);border-radius:100px;background:rgba(10,11,10,.38);backdrop-filter:blur(10px);font:500 11px/1 var(--sans);letter-spacing:.05em;color:var(--murekkep);white-space:nowrap;pointer-events:auto;transition:background .35s,color .35s,border-color .35s}
+.ust-tel svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ust-tel b{font-weight:500;font-variant-numeric:tabular-nums}
+.ust-tel:hover,.ust-tel:focus-visible{background:var(--vurgu);border-color:var(--vurgu);color:var(--zemin)}
+
+/* Yazılar */
+.metinler{position:absolute;z-index:6;left:var(--kenar);top:50%;width:min(560px,40vw);transform:translateY(-50%);perspective:1200px;pointer-events:none}
+.metin{position:absolute;left:0;top:50%;width:100%;opacity:0;visibility:hidden;transform:translateY(-42%) rotateX(8deg);transform-origin:0 50%;transition:opacity .6s var(--ease),transform .95s var(--ease-yavas);will-change:transform,opacity}
+.metin.on{opacity:1;visibility:visible;transform:translateY(-50%)}
+.metin.giris-alt{animation:metinAlt 1s var(--ease-yavas) both}
+.metin.giris-ust{animation:metinUst 1s var(--ease-yavas) both}
+@keyframes metinAlt{0%{opacity:0;transform:translateY(-42%) rotateX(9deg);filter:blur(4px)}100%{opacity:1;transform:translateY(-50%);filter:blur(0)}}
+@keyframes metinUst{0%{opacity:0;transform:translateY(-58%) rotateX(-8deg);filter:blur(4px)}100%{opacity:1;transform:translateY(-50%);filter:blur(0)}}
+.metin .etiket{display:flex;align-items:center;gap:12px;font:500 9px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:rgba(243,239,230,.66)}
+.metin .etiket::before{content:'';display:block;width:32px;height:1px;background:var(--vurgu)}
+.metin h2{font:400 clamp(38px,5.2vw,84px)/.95 var(--serif);letter-spacing:-.04em;margin:clamp(14px,2.4vh,24px) 0 clamp(12px,2vh,20px);color:rgba(243,239,230,.9);text-wrap:balance;text-shadow:0 2px 34px rgba(0,0,0,.3)}
+.metin h2 em{font-style:italic;color:rgba(243,239,230,.78)}
+.metin .aciklama{max-width:44ch;font-size:clamp(12px,1.02vw,15px);line-height:1.7;color:var(--soluk)}
+.metin .etiket + h2 + .aciklama{margin:0}
+
+/* Kanıt sahnesi */
+.kanit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(20px,3.4vh,32px);border-top:1px solid rgba(243,239,230,.16);padding-top:clamp(16px,2.4vh,24px)}
+.kanit div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.kanit b{font:400 clamp(24px,2.4vw,34px)/1 var(--serif);letter-spacing:-.02em;color:var(--murekkep)}
+.kanit span{font:500 8.5px/1.45 var(--sans);letter-spacing:.1em;color:rgba(243,239,230,.5)}
+
+/* Kapanış */
+.metin.son{pointer-events:auto}
+.son-iletisim{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.6vw,30px);margin-top:clamp(20px,3.4vh,30px)}
+.son-dugme{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;padding:0 16px 0 21px;border:1px solid rgba(243,239,230,.45);border-radius:100px;font:500 9px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--murekkep);overflow:hidden;isolation:isolate;position:relative;transition:color .4s,border-color .4s}
+.son-dugme::before{content:'';position:absolute;z-index:-1;inset:0;background:var(--murekkep);transform:translateY(101%);transition:transform .55s var(--ease)}
+.son-dugme:hover{color:var(--zemin);border-color:var(--murekkep)}
+.son-dugme:hover::before{transform:translateY(0)}
+.son-dugme span{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border:1px solid rgba(243,239,230,.32);border-radius:50%;font-size:10px;transition:transform .4s,border-color .4s}
+.son-dugme:hover span{transform:rotate(45deg);border-color:rgba(10,11,10,.3)}
+.son-bilgi{display:flex;flex-direction:column;gap:4px;font:500 9px/1.5 var(--sans);letter-spacing:.08em;color:rgba(243,239,230,.6)}
+.son-bilgi a:hover{color:var(--murekkep)}
+.son-not{max-width:46ch;margin-top:clamp(18px,3vh,26px);padding-top:13px;border-top:1px solid rgba(243,239,230,.14);font:500 8px/1.6 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(243,239,230,.36)}
+
+/* Alt şerit */
+.alt{position:absolute;z-index:10;left:var(--kenar);right:var(--kenar);bottom:22px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;pointer-events:none}
+.alt>*{pointer-events:auto}
+.ilerleme{display:flex;align-items:center;gap:12px;font:400 12px/1 var(--serif);color:rgba(243,239,230,.78)}
+.ilerleme i{display:block;width:clamp(90px,12vw,170px);height:1px;background:rgba(243,239,230,.2);overflow:hidden}
+.ilerleme i b{display:block;height:100%;width:100%;background:var(--vurgu);transform:scaleX(0);transform-origin:0 50%;transition:transform .8s var(--ease-yavas)}
+.ilerleme small{font:500 8px var(--sans);letter-spacing:.14em;color:rgba(243,239,230,.38)}
+.ipucu{display:flex;align-items:center;gap:10px;font:500 8px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(243,239,230,.5);transition:opacity .4s}
+.ipucu .teker{display:block;width:17px;height:27px;border:1px solid rgba(243,239,230,.4);border-radius:9px;position:relative}
+.ipucu .teker i{position:absolute;left:50%;top:5px;width:1px;height:7px;margin-left:-.5px;background:rgba(243,239,230,.75);animation:teker 1.8s var(--ease) infinite}
+@keyframes teker{0%{opacity:0;transform:translateY(-2px)}25%{opacity:1}75%{opacity:1;transform:translateY(7px)}100%{opacity:0;transform:translateY(9px)}}
+body.gezindi .ipucu{opacity:.55}
+@media (max-width:960px){
+  .metinler{width:min(520px,52vw)}
+  .foto{width:50%}
+}
+@media (max-width:760px){
+  :root{--ust:64px}
+  .sahne::before{background:linear-gradient(180deg,rgba(10,11,10,.55),var(--zemin) 72%)}
+  .foto{width:100%;inset:0}
+  .foto::before{background:linear-gradient(0deg,var(--zemin) 4%,rgba(10,11,10,.72) 34%,rgba(10,11,10,.12) 68%,rgba(10,11,10,.35) 100%)}
+  .foto::after{display:none}
+  .metinler{top:auto;bottom:clamp(92px,15vh,132px);transform:none;width:auto;right:var(--kenar)}
+  .metin{position:absolute;top:auto;bottom:0;transform:translateY(20px) rotateX(6deg);transform-origin:0 100%}
+  .metin.on{transform:none}
+  @keyframes metinAlt{0%{opacity:0;transform:translateY(24px) rotateX(8deg);filter:blur(4px)}100%{opacity:1;transform:none;filter:blur(0)}}
+  @keyframes metinUst{0%{opacity:0;transform:translateY(-18px) rotateX(-8deg);filter:blur(4px)}100%{opacity:1;transform:none;filter:blur(0)}}
+  .metin h2{font-size:clamp(34px,8.6vw,56px)}
+  .metin .aciklama{font-size:12px;max-width:36ch}
+  .alt{flex-direction:column;align-items:flex-start;gap:12px;bottom:16px}
+  .ipucu{align-self:flex-end}
+  .marka{font-size:15px}
+  .ust-tel{height:34px;padding:0 11px;gap:7px;font-size:9.5px}
+  .ust-tel svg{width:12px;height:12px}
+  .reklam-ad{font-size:clamp(38px,11vw,58px)}
+  .kanit{gap:10px}
+  .kanit b{font-size:24px}
+}
+@media (max-height:620px){
+  .metin h2{font-size:clamp(30px,6.6vh,50px);margin:10px 0 10px}
+  .metin .aciklama{font-size:11.5px;line-height:1.55}
+  .metinler{bottom:84px}
+  .son-not{margin-top:12px;padding-top:10px}
+  .son-iletisim{margin-top:14px}
+  .kanit{margin-top:14px;padding-top:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .kat img{transform:none!important}
+}
+html:not(.js) .kat[data-i="1"]{opacity:1}
+html:not(.js) .metin[data-i="1"]{opacity:1;visibility:visible;transform:none;position:relative}
+html:not(.js) .ipucu{display:none}
+</style>
+</head>
+<body class="tanitimda">
+<div class="grain" aria-hidden="true"></div>
+<a class="atla" href="#sahneler">Filme geç</a>
+
+<div class="reklam" id="reklam">
+  <div class="reklam-orta">
+    <div class="reklam-ad">Kaya Kahve</div>
+    <div class="reklam-tel"><a href="tel:05551112233">0555 111 22 33</a></div>
+  </div>
+  <div class="reklam-alt">
+    <span class="reklam-zaman"><i></i></span>
+  </div>
+</div>
+
+<main class="sahne" id="sahneler">
+  <h1 class="sr">Kaya Kahve — Kafe &amp; Restoran tanıtım filmi</h1>
+
+  <div class="foto" aria-hidden="true">
+    <figure class="kat" data-i="1"><img src="art/1.jpg" alt="Kafe &amp; Restoran — Kaya Kahve 1"></figure>
+    <figure class="kat" data-i="2"><img src="art/2.jpg" alt="Kafe &amp; Restoran — Kaya Kahve 2"></figure>
+    <figure class="kat" data-i="3"><img src="art/3.jpg" alt="Kafe &amp; Restoran — Kaya Kahve 3"></figure>
+    <figure class="kat" data-i="4"><img src="art/4.jpg" alt="Kafe &amp; Restoran — Kaya Kahve 4"></figure>
+    <figure class="kat" data-i="5"><img src="art/5.jpg" alt="Kafe &amp; Restoran — Kaya Kahve 5"></figure>
+    <figure class="kat" data-i="6"><img src="art/6.jpg" alt="Kafe &amp; Restoran — Kaya Kahve 6"></figure>
+  </div>
+
+  <header class="ust">
+    <span class="marka">Kaya Kahve<i>●</i></span>
+    <a class="ust-tel" href="tel:05551112233" aria-label="Telefon: 0555 111 22 33"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg><b>0555 111 22 33</b></a>
+  </header>
+
+  <div class="metinler" id="metinler" aria-live="polite">
+    <article class="metin" data-i="1">
+      <span class="etiket">Kafe &amp; Restoran · Alsancak, İzmir</span>
+      <h2>Sabah burada<br><em>başlar.</em></h2>
+      <p class="aciklama">Mevsiminde malzeme, günlük hazırlık ve sıcak bir servis. Mahallenin buluşma noktasında kahvaltıdan akşam yemeğine kadar yanınızdayız.</p>
+    </article>
+    <article class="metin" data-i="2">
+      <span class="etiket">Hizmet · 1</span>
+      <h2>Kahvaltı</h2>
+      <p class="aciklama">Serpme kahvaltı ve günlük fırın ürünleri; hafta sonu 09.00–13.00.</p>
+    </article>
+    <article class="metin" data-i="3">
+      <span class="etiket">Hizmet · 2</span>
+      <h2>Öğle menüsü</h2>
+      <p class="aciklama">Her gün değişen iki ana yemek, çorba ve tatlı; 12.00–15.00.</p>
+    </article>
+    <article class="metin" data-i="4">
+      <span class="etiket">Hizmet · 3</span>
+      <h2>Özel davetler</h2>
+      <p class="aciklama">Doğum günü ve küçük toplantılar için 20 kişiye kadar ayrı salon.</p>
+    </article>
+    <article class="metin" data-i="5">
+      <span class="etiket">Kayıt</span>
+      <h2>İş, <em>kayıtla.</em></h2>
+      <p class="aciklama">Rakam değil; her gün aynı özenle tekrarlanan iş. Kapsam ve fiyat baştan yazılı.</p>
+      <div class="kanit"><div><b>2016</b><span>beri aynı mahallede</span></div><div><b>Günlük</b><span>taze hazırlık</span></div><div><b>4.7/5</b><span>müşteri puanı</span></div></div>
+    </article>
+    <article class="metin son" data-i="6">
+      <span class="etiket">Davet</span>
+      <h2>Bir mesaj, <em>bir kahve.</em></h2>
+      <p class="aciklama">İhtiyacınızı kısaca yazın; uygun gün ve saati birlikte seçelim.</p>
+      <div class="son-iletisim">
+        <a class="son-dugme" href="mailto:merhaba@kayakahve.com">Randevu al <span>↗</span></a>
+        <div class="son-bilgi">
+          <a href="mailto:merhaba@kayakahve.com">merhaba@kayakahve.com</a>
+          <span>0555 111 22 33</span>
+          <span>Alsancak, İzmir</span>
+        </div>
+      </div>
+      <p class="son-not">Örnek site · İşletme ve iletişim bilgileri kurgusaldır.</p>
+    </article>
+  </div>
+
+  <footer class="alt">
+    <div class="ilerleme" aria-hidden="true"><span id="sayac">01</span><i><b id="cizgi"></b></i><small>06</small></div>
+    <span class="ipucu"><span class="teker"><i></i></span><span class="ipucu-yazi">Fare tekerleğiyle çevir</span></span>
+  </footer>
+  <p class="sr" id="durum"></p>
+</main>
+
+<script>
+(function(){
+  var govde=document.body;
+  var reklam=document.getElementById('reklam');
+  var katlar=[].slice.call(document.querySelectorAll('.kat'));
+  var metinler=[].slice.call(document.querySelectorAll('.metin'));
+  var sayac=document.getElementById('sayac');
+  var cizgi=document.getElementById('cizgi');
+  var ipucuYazi=document.querySelector('.ipucu-yazi');
+  var durum=document.getElementById('durum');
+  var SON=metinler.length, adim=0, kilit=false, tanitim=true, birikim=0;
+
+  function iki(n){return (n<10?'0':'')+n;}
+
+  function ciz(yon){
+    var kat=Math.min(adim+1,katlar.length);
+    katlar.forEach(function(k){
+      var on=+k.getAttribute('data-i')===kat;
+      if(on && !k.classList.contains('on')){
+        k.classList.remove('giris-alt','giris-ust');
+        void k.offsetWidth;
+        if(yon) k.classList.add(yon<0?'giris-ust':'giris-alt');
+      }
+      k.classList.toggle('on',on);
+    });
+    metinler.forEach(function(m){
+      var on=+m.getAttribute('data-i')===adim+1;
+      if(on && !m.classList.contains('on')){
+        m.classList.remove('giris-alt','giris-ust');
+        void m.offsetWidth;
+        if(yon) m.classList.add(yon<0?'giris-ust':'giris-alt');
+      }
+      m.classList.toggle('on',on);
+      m.setAttribute('aria-hidden',on?'false':'true');
+    });
+    sayac.textContent=iki(adim+1);
+    cizgi.style.transform='scaleX('+((adim+1)/SON)+')';
+    var ad=metinler[adim].querySelector('h2').textContent.replace(/\s+/g,' ').replace(/[.!?]$/,'').trim();
+    durum.textContent=ad+' · '+(adim+1)+' / '+SON;
+    ipucuYazi.textContent=adim===SON-1?'Başa dönmek için yukarı çevir':(adim===0?'Fare tekerleğiyle çevir':'Devam etmek için çevir');
+  }
+
+  function git(hedef){
+    if(kilit||tanitim) return;
+    hedef=Math.max(0,Math.min(SON-1,hedef));
+    if(hedef===adim) return;
+    var yon=hedef>adim?1:-1;
+    adim=hedef;
+    kilit=true;
+    govde.classList.add('gezindi');
+    ciz(yon);
+    window.setTimeout(function(){kilit=false;},900);
+  }
+
+  function bitir(){
+    if(!tanitim) return;
+    tanitim=false;
+    govde.classList.remove('tanitimda');
+    reklam.classList.add('gitti');
+    window.setTimeout(function(){reklam.hidden=true;},1000);
+    adim=0;
+    ciz(0);
+  }
+
+  window.setTimeout(bitir,3000);
+
+  document.querySelector('.atla').addEventListener('click',function(e){
+    if(tanitim){e.preventDefault();bitir();}
+  });
+
+  window.addEventListener('wheel',function(e){
+    if(tanitim) return;
+    e.preventDefault();
+    if(kilit) return;
+    birikim+=e.deltaY;
+    if(Math.abs(birikim)<18) return;
+    var yon=birikim>0?1:-1;
+    birikim=0;
+    git(adim+yon);
+  },{passive:false});
+
+  window.addEventListener('keydown',function(e){
+    if(tanitim){
+      if(e.key==='Enter'||e.key===' '||e.key==='Escape'){e.preventDefault();bitir();}
+      return;
+    }
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();git(adim+1);}
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();git(adim-1);}
+    else if(e.key==='Home'){e.preventDefault();git(0);}
+    else if(e.key==='End'){e.preventDefault();git(SON-1);}
+  });
+
+  var basY=null;
+  window.addEventListener('touchstart',function(e){
+    if(e.touches.length===1) basY=e.touches[0].clientY;
+  },{passive:true});
+  window.addEventListener('touchend',function(e){
+    if(basY===null||tanitim) return;
+    var son=e.changedTouches[0].clientY;
+    var fark=basY-son;
+    basY=null;
+    if(Math.abs(fark)<40) return;
+    git(adim+(fark>0?1:-1));
+  },{passive:true});
+
+  ciz(0);
+})();
+</script>
+</body>
+</html>

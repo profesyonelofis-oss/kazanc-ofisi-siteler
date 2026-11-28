@@ -1,0 +1,19 @@
+SEKTÖR FİLMİ — KAYNAKLAR
+
+Site tek dosyadır (index.html); CSS ve JavaScript sayfanın içindedir.
+Açılışta üç saniyelik isim tanıtımı, ardından fare tekerleğiyle altı
+sahne ilerler. Sayfa kaymaz; çalışırken hiçbir CDN, font servisi veya
+API çağrılmaz.
+
+GÖRSELLER
+art/1.jpg … art/6.jpg — sektörün exe içindeki on yapay zekâ
+fotoğrafından seçilen altı kare. Stok fotoğraf kullanılmadı.
+
+YAZI TİPLERİ
+Instrument Serif (normal + italik) — SIL Open Font License
+Manrope (değişken) — SIL Open Font License
+
+ÖRNEK İÇERİK
+İşletme adı, hizmet metinleri ve iletişim bilgileri kurgusaldır;
+sayfada "Örnek site · İşletme ve iletişim bilgileri kurgusaldır"
+notu görünür. Form yoktur; düğme e-posta bağlantısıdır.
