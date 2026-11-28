@@ -1,13 +1,15 @@
 SEKTÖR FİLMİ — KAYNAKLAR
 
 Site tek dosyadır (index.html); CSS ve JavaScript sayfanın içindedir.
-Açılışta üç saniyelik isim tanıtımı, ardından fare tekerleğiyle altı
-sahne ilerler. Sayfa kaymaz; çalışırken hiçbir CDN, font servisi veya
-API çağrılmaz.
+Tek bölüm vardır: tam ekran sahne. Açılışta üç saniyelik isim tanıtımı,
+ardından film kendi akar; fare tekerleğiyle ileri ve geri sarılır.
+Sayfa kaymaz; çalışırken hiçbir CDN, font servisi veya API çağrılmaz.
 
 GÖRSELLER
-art/1.jpg … art/6.jpg — sektörün exe içindeki on yapay zekâ
-fotoğrafından seçilen altı kare. Stok fotoğraf kullanılmadı.
+art/1.jpg … art/3.jpg — aynı sahnenin geniş, iş ve detay kareleri.
+Üç fotoğraf ücretsiz yapay zekâ üretimiyle hazırlandı; aynı mekân,
+aynı ışık ve aynı paletle üretildikleri için kareler arası geçiş
+kesme değil, kameranın devamı gibi okunur. Stok fotoğraf yoktur.
 
 YAZI TİPLERİ
 Instrument Serif (normal + italik) — SIL Open Font License
