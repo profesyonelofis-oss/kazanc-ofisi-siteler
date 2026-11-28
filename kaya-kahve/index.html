@@ -9,6 +9,7 @@
 <meta name="theme-color" content="#0a0b0a">
 <link rel="preload" as="font" type="font/woff2" href="fonts/instrument-serif-400.woff2" crossorigin>
 <link rel="preload" as="image" href="art/1.jpg">
+<link rel="preload" as="image" href="art/2.jpg">
 <style>
 /* ——— 01 · Fontlar ——— */
 @font-face{font-family:'Instrument Serif';src:url('fonts/instrument-serif-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -30,7 +31,7 @@
   --kenar:clamp(24px,5.5vw,92px);
   --ust:82px;
   /* Tek karenin ekranda kalma süresi; JS aynı değeri okur. */
-  --vurus:4000ms;
+  --vurus:5000ms;
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
@@ -73,29 +74,44 @@ html:not(.js) .reklam{display:none}
 
 /* ——— 05 · Tek bölüm: tam ekran film sahnesi ——— */
 .film{position:fixed;inset:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:var(--zemin)}
-.kareler{position:absolute;inset:0;z-index:0;background:var(--zemin)}
-/* Her kare tek sahnenin bir anı: aynı mekân, aynı ışık. Geçiş, kare
-   değiştirmek gibi değil, kameranın devam etmesi gibi okunur. */
-.kare{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transition:opacity 1.35s var(--ease-yavas),visibility 1.35s;will-change:opacity;backface-visibility:hidden}
-.kare.on{opacity:1;visibility:visible}
-.kare img{width:100%;height:100%;object-fit:cover;object-position:var(--odak,50% 50%);transform:scale(var(--b,1.03));filter:saturate(.97) contrast(1.03)}
-.kare.on img{animation:kamera var(--kamera,9s) linear both}
-@keyframes kamera{0%{transform:scale(var(--b,1.03)) translate3d(0,0,0)}100%{transform:scale(calc(var(--b,1.03) + .085)) translate3d(0,-1.1%,0)}}
-/* Kamera açıları: fotoğraflar aynı sahne olduğu için kadraj kayması
-   kesme değil, kaydırma hissi verir. */
-.kam-a{--odak:50% 50%;--b:1.02}
-.kam-b{--odak:57% 44%;--b:1.09}
-.kam-c{--odak:45% 58%;--b:1.05}
+/* Sahne durmaz: bütün kare yığını kırk saniyede bir nefes alır. Bu, fotoğraf
+   dizisi değil el kamerası hissi verir. */
+.kareler{position:absolute;inset:0;z-index:0;background:var(--zemin);overflow:hidden;animation:nefes 38s ease-in-out infinite alternate}
+@keyframes nefes{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.018) translate3d(0,-.5%,0)}}
+/* Her kare tek sahnenin bir anı. Geçişte gelen kare bulanık ve bir tık büyük
+   başlar, eriyişin içinde odağa oturur: kesme değil, kamera devamı. */
+.kare{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transform:scale(1.045);filter:blur(14px) brightness(1.1) saturate(.9);transition:opacity 1.2s var(--ease-yavas),visibility 1.2s,transform 1.7s var(--ease-yavas),filter 1.7s var(--ease-yavas);will-change:opacity,filter,transform;backface-visibility:hidden}
+.kare.on{opacity:1;visibility:visible;transform:scale(1);filter:blur(0) brightness(1) saturate(1)}
+.kare img{width:100%;height:100%;object-fit:cover;object-position:var(--odak,50% 50%);transform:scale(var(--s1,1.06)) translate3d(var(--x1,0),var(--y1,0),0);filter:saturate(.98) contrast(1.04)}
+/* Giden kare eriyiş boyunca hareketine devam eder; ani sıçrama olmaz. */
+.kare.on img,.kare.giden img{animation:kamera var(--kamera,13s) linear both}
+@keyframes kamera{
+  0%{transform:scale(var(--s1,1.06)) translate3d(var(--x1,0),var(--y1,0),0)}
+  100%{transform:scale(var(--s2,1.14)) translate3d(var(--x2,0),var(--y2,0),0)}}
+/* Altı kare, altı kamera hareketi: biri içeri, biri geri, biri yana kayar.
+   Yön her karede değiştiği için göz tek bir çekim izler gibi okur. */
+.kam-a{--odak:50% 48%;--s1:1.05;--s2:1.15;--x1:0;--y1:0;--x2:-1.2%;--y2:-1.4%}
+.kam-b{--odak:57% 45%;--s1:1.14;--s2:1.04;--x1:1.3%;--y1:-.4%;--x2:-1.1%;--y2:.6%}
+.kam-c{--odak:44% 55%;--s1:1.04;--s2:1.14;--x1:-1.3%;--y1:.7%;--x2:1.2%;--y2:-1%}
+.kam-d{--odak:52% 60%;--s1:1.12;--s2:1.03;--x1:.5%;--y1:1.6%;--x2:-1.2%;--y2:-.5%}
+.kam-e{--odak:47% 42%;--s1:1.03;--s2:1.13;--x1:-1.6%;--y1:-.5%;--x2:1.1%;--y2:1.2%}
+.kam-f{--odak:50% 52%;--s1:1.13;--s2:1.04;--x1:1.1%;--y1:-1.5%;--x2:-1.3%;--y2:1%}
 
 /* Yazının okunması için sahnenin üstünde yumuşak perde. */
 .film::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
   linear-gradient(90deg,rgba(7,8,7,.9) 0%,rgba(7,8,7,.76) 30%,rgba(7,8,7,.32) 54%,rgba(7,8,7,.03) 76%,transparent 92%),
   linear-gradient(0deg,rgba(7,8,7,.86) 0%,rgba(7,8,7,.28) 26%,transparent 52%),
   linear-gradient(180deg,rgba(7,8,7,.72) 0%,transparent 26%)}
-/* Kesme anında bir karelik ışık: film geçişi hissi. */
-.vurus{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 62% 46%,color-mix(in srgb,var(--vurgu) 24%,transparent),transparent 62%);mix-blend-mode:screen}
-.vurus.yan{animation:vurus .52s var(--ease) both}
+/* Kesme anında bir karelik ışık ve geçişi takip eden ışık süpürmesi:
+   profesyonel film geçişlerinde görülen lens parlaması. */
+.vurus{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 62% 46%,color-mix(in srgb,var(--vurgu) 22%,transparent),transparent 62%);mix-blend-mode:screen}
+.vurus.yan{animation:vurus .62s var(--ease) both}
 @keyframes vurus{0%{opacity:.5}100%{opacity:0}}
+.isik{position:absolute;inset:-14% -48%;z-index:3;pointer-events:none;opacity:0;mix-blend-mode:screen;background:linear-gradient(104deg,transparent 42%,rgba(255,248,235,.10) 47%,rgba(255,255,255,.28) 50%,rgba(255,248,235,.10) 53%,transparent 58%)}
+.isik.ak{animation:akis 1.7s cubic-bezier(.33,0,.2,1) both}
+@keyframes akis{0%{opacity:0;transform:translate3d(-54%,0,0) rotate(2deg)}14%{opacity:.85}72%{opacity:.5}100%{opacity:0;transform:translate3d(54%,0,0) rotate(2deg)}}
+/* Kenarlarda sinema vinyeti: sahneyi bir perde gibi kapatır. */
+.film::after{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;box-shadow:inset 0 0 clamp(90px,15vw,220px) clamp(8px,1.8vw,36px) rgba(6,7,6,.55)}
 
 /* Üst şerit: her karede işletme adı ve telefon düğmesi */
 .ust{position:absolute;z-index:10;top:0;left:0;right:0;height:var(--ust);padding:0 var(--kenar);display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,24px);pointer-events:none}
@@ -201,13 +217,14 @@ html:not(.js) .ipucu{display:none}
 
   <div class="kareler" aria-hidden="true">
     <figure class="kare kam-a" data-i="1" aria-hidden="true"><img src="art/1.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-b" data-i="2" aria-hidden="true"><img src="art/1.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-a" data-i="3" aria-hidden="true"><img src="art/2.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-c" data-i="4" aria-hidden="true"><img src="art/2.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-a" data-i="5" aria-hidden="true"><img src="art/3.jpg" alt="" decoding="async"></figure>
-    <figure class="kare kam-b" data-i="6" aria-hidden="true"><img src="art/3.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-b" data-i="2" aria-hidden="true"><img src="art/2.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-c" data-i="3" aria-hidden="true"><img src="art/3.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-d" data-i="4" aria-hidden="true"><img src="art/4.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-e" data-i="5" aria-hidden="true"><img src="art/5.jpg" alt="" decoding="async"></figure>
+    <figure class="kare kam-f" data-i="6" aria-hidden="true"><img src="art/6.jpg" alt="" decoding="async"></figure>
   </div>
   <div class="vurus" id="vurus" aria-hidden="true"></div>
+  <div class="isik" id="isik" aria-hidden="true"></div>
 
   <header class="ust">
     <span class="marka">Kaya Kahve<i>●</i></span>
@@ -252,6 +269,7 @@ html:not(.js) .ipucu{display:none}
   var ipucuYazi=document.querySelector('.ipucu-yazi');
   var durum=document.getElementById('durum');
   var vurus=document.getElementById('vurus');
+  var isik=document.getElementById('isik');
   var ADLAR=["Giriş","Kahvaltı","Öğle menüsü","Özel davetler","Kayıt","Davet"];
   var SON=kareler.length, adim=0, kilit=false, tanitim=true, birikim=0, zaman=null;
   var SURE=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--vurus'),10)||4000;
@@ -281,18 +299,27 @@ html:not(.js) .ipucu{display:none}
     vurus.classList.remove('yan');
     void vurus.offsetWidth;
     vurus.classList.add('yan');
+    isik.classList.remove('ak');
+    void isik.offsetWidth;
+    isik.classList.add('ak');
   }
 
   function git(hedef,tikla){
     if(kilit) return;
     hedef=(hedef+SON)%SON;
     if(hedef===adim) return;
+    var eski=kareler[adim];
+    /* Giden kare kamerayı bırakmaz: eriyiş bitene kadar hareketine devam eder. */
+    if(eski && eski!==kareler[hedef]){
+      eski.classList.add('giden');
+      window.setTimeout(function(){eski.classList.remove('giden');},1700);
+    }
     adim=hedef;
     kilit=true;
     govde.classList.add('gezindi');
     ciz();
     vur();
-    window.setTimeout(function(){kilit=false;},620);
+    window.setTimeout(function(){kilit=false;},820);
     if(tikla) bekle();
   }
 
